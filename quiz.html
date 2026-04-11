@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>U.S. Citizenship Test — Interactive</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+
+  :root {
+    --red: #B22234;
+    --blue: #3C3B6E;
+    --gold: #C9A84C;
+    --cream: #FAF7F0;
+    --ink: #1A1A2E;
+    --muted: #6B6B7B;
+    --correct: #2D6A4F;
+    --wrong: #A4161A;
+    --correct-bg: #D8F3DC;
+    --wrong-bg: #FFDAD6;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--cream);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  header {
+    background: var(--blue);
+    padding: 48px 24px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent, transparent 40px,
+      rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 41px
+    );
+  }
+  .flag-stripe {
+    display: flex;
+    height: 6px;
+    width: 100%;
+    position: absolute;
+    top: 0; left: 0;
+  }
+  .flag-stripe span {
+    flex: 1;
+  }
+  .flag-stripe span:nth-child(odd)  { background: var(--red); }
+  .flag-stripe span:nth-child(even) { background: white; }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 900;
+    color: white;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  header p {
+    color: rgba(255,255,255,0.75);
+    font-size: 1rem;
+    font-style: italic;
+    position: relative;
+  }
+  .stars {
+    color: var(--gold);
+    font-size: 1.2rem;
+    letter-spacing: 6px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  .intro-card {
+    background: white;
+    border-left: 5px solid var(--blue);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .intro-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--blue);
+    margin-bottom: 10px;
+  }
+  .intro-card p {
+    font-size: 0.97rem;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+
+  #progress-bar-wrap {
+    background: #E0DDD6;
+    height: 6px;
+    border-radius: 3px;
+    margin-bottom: 32px;
+    overflow: hidden;
+  }
+  #progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--blue), var(--red));
+    width: 0%;
+    transition: width 0.4s ease;
+    border-radius: 3px;
+  }
+
+  .question-card {
+    background: white;
+    border-radius: 8px;
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    border: 1px solid #EAE7E0;
+    transition: box-shadow 0.2s;
+  }
+  .question-card.answered { opacity: 0.85; }
+
+  .q-number {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--red);
+    margin-bottom: 10px;
+    font-family: 'Source Serif 4', serif;
+  }
+  .q-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 22px;
+    line-height: 1.5;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 10px; }
+
+  .option-btn {
+    background: var(--cream);
+    border: 2px solid #DDD9CF;
+    border-radius: 6px;
+    padding: 14px 18px;
+    text-align: left;
+    cursor: pointer;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.97rem;
+    color: var(--ink);
+    transition: all 0.18s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .option-btn:hover:not(:disabled) {
+    border-color: var(--blue);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(60,59,110,0.1);
+  }
+  .option-btn .letter {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid #CCC;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+    flex-shrink: 0;
+    transition: all 0.18s;
+    font-family: 'Source Serif 4', serif;
+  }
+  .option-btn:disabled { cursor: default; }
+  .option-btn.correct {
+    background: var(--correct-bg);
+    border-color: var(--correct);
+    color: var(--correct);
+  }
+  .option-btn.correct .letter {
+    background: var(--correct); border-color: var(--correct); color: white;
+  }
+  .option-btn.wrong {
+    background: var(--wrong-bg);
+    border-color: var(--wrong);
+    color: var(--wrong);
+  }
+  .option-btn.wrong .letter {
+    background: var(--wrong); border-color: var(--wrong); color: white;
+  }
+  .option-btn.revealed-correct {
+    background: var(--correct-bg);
+    border-color: var(--correct);
+    color: var(--correct);
+    opacity: 0.7;
+  }
+
+  .explanation {
+    display: none;
+    margin-top: 16px;
+    padding: 14px 18px;
+    background: #F0F4FF;
+    border-left: 4px solid var(--blue);
+    border-radius: 4px;
+    font-size: 0.92rem;
+    color: var(--blue);
+    line-height: 1.6;
+  }
+  .explanation.show { display: block; }
+  .explanation strong { font-weight: 700; }
+
+  #submit-btn {
+    display: block;
+    margin: 40px auto 0;
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 18px 56px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 4px 16px rgba(60,59,110,0.3);
+  }
+  #submit-btn:hover { background: #2d2c5c; transform: translateY(-1px); }
+  #submit-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+  #results {
+    display: none;
+    background: white;
+    border-radius: 12px;
+    padding: 48px 40px;
+    margin-top: 40px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.1);
+    text-align: center;
+    border: 1px solid #EAE7E0;
+  }
+  #results.show { display: block; }
+
+  .score-circle {
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    border: 8px solid var(--blue);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    margin: 0 auto 28px;
+  }
+  .score-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--blue);
+    line-height: 1;
+  }
+  .score-denom {
+    font-size: 1rem;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .result-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .result-msg {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 0 auto 28px;
+  }
+  .result-badge {
+    display: inline-block;
+    padding: 8px 24px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .badge-outstanding { background: #FFD700; color: #1A1A2E; }
+  .badge-excellent   { background: var(--correct-bg); color: var(--correct); }
+  .badge-good        { background: #E0F0FF; color: var(--blue); }
+  .badge-passing     { background: #FFF3CD; color: #856404; }
+  .badge-fail        { background: var(--wrong-bg); color: var(--wrong); }
+
+  #retake-btn {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+    padding: 14px 40px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  #retake-btn:hover { background: var(--blue); color: white; }
+
+  footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-style: italic;
+    border-top: 1px solid #DDD9CF;
+    margin-top: 60px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="flag-stripe">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+  </div>
+  <div class="stars">★ ★ ★ ★ ★</div>
+  <h1>U.S. Citizenship Civics Test</h1>
+  <p>Based on the USCIS Naturalization Examination — 20 Questions</p>
+</header>
+
+<div class="container">
+  <div class="intro-card">
+    <h2>Before You Begin</h2>
+    <p>This test covers all 27 Constitutional Amendments and core principles of American civic life.
+    The actual USCIS naturalization exam requires answering <strong>6 out of 10</strong> questions correctly.
+    This version gives you 20 questions drawn from the full scope of the Constitution.
+    Select your answer for each question, then click <strong>Submit &amp; Score</strong> when finished.
+    Explanations will be revealed after submission.</p>
+  </div>
+
+  <div id="progress-bar-wrap"><div id="progress-bar"></div></div>
+
+  <div id="quiz-form"></div>
+
+  <button id="submit-btn" onclick="submitQuiz()">Submit &amp; Score</button>
+
+  <div id="results">
+    <div class="score-circle">
+      <div class="score-number" id="score-number">0</div>
+      <div class="score-denom">out of 20</div>
+    </div>
+    <div class="result-title" id="result-title"></div>
+    <div class="result-badge" id="result-badge"></div>
+    <p class="result-msg" id="result-msg"></p>
+    <button id="retake-btn" onclick="retakeQuiz()">Retake Test</button>
+  </div>
+</div>
+
+<footer>
+  All constitutional text sourced verbatim from the National Archives enrolled amendments.
+  This quiz is for educational purposes only.
+  <a href="README.md" style="color: var(--blue);">View full constitutional reference →</a>
+</footer>
+
+<script>
+const questions = [
+  {
+    q: "What is the supreme law of the land?",
+    opts: ["The Declaration of Independence","The Constitution","The Bill of Rights","The Articles of Confederation"],
+    answer: 1,
+    explanation: "<strong>The Constitution</strong> is the supreme law of the land (Article VI, Supremacy Clause). All federal, state, and local laws must conform to it."
+  },
+  {
+    q: "What do we call the first ten amendments to the Constitution?",
+    opts: ["The Articles of Freedom","The Declaration of Rights","The Bill of Rights","The Founding Principles"],
+    answer: 2,
+    explanation: "<strong>The Bill of Rights</strong> — Amendments I through X — was ratified on December 15, 1791. The states demanded these protections before agreeing to ratify the Constitution."
+  },
+  {
+    q: "What is one right or freedom guaranteed by the First Amendment?",
+    opts: ["The right to bear arms","The right to a speedy trial","Freedom of speech","The right to vote"],
+    answer: 2,
+    explanation: "<strong>Amendment I</strong> protects five freedoms: religion, speech, press, peaceful assembly, and the right to petition the government. The right to bear arms is Amendment II; speedy trial is Amendment VI."
+  },
+  {
+    q: "How many amendments does the Constitution have?",
+    opts: ["10","17","25","27"],
+    answer: 3,
+    explanation: "The Constitution has <strong>27 amendments</strong>. The first 10 (Bill of Rights) were ratified in 1791. The most recent — Amendment XXVII on Congressional pay — was ratified on May 7, 1992."
+  },
+  {
+    q: "What did the Thirteenth Amendment accomplish?",
+    opts: ["Gave women the right to vote","Abolished slavery","Established the income tax","Gave citizens the right to vote regardless of race"],
+    answer: 1,
+    explanation: "<strong>Amendment XIII (1865)</strong> abolished slavery and involuntary servitude throughout the United States, except as punishment for a crime upon conviction. It was ratified shortly after the Civil War."
+  },
+  {
+    q: "Which amendment gave women the right to vote?",
+    opts: ["Amendment XV","Amendment XVII","Amendment XIX","Amendment XXIV"],
+    answer: 2,
+    explanation: "<strong>Amendment XIX</strong>, ratified August 18, 1920, prohibits denying the right to vote on account of sex. It was the culmination of decades of the women's suffrage movement."
+  },
+  {
+    q: "Under the Fifth Amendment, a person cannot be tried twice for the same crime. What is this protection called?",
+    opts: ["Due process","Eminent domain","Double jeopardy","Habeas corpus"],
+    answer: 2,
+    explanation: "<strong>Double jeopardy</strong> — protected by Amendment V — bars the government from prosecuting a person a second time for the same offense after acquittal or conviction."
+  },
+  {
+    q: "What does the Fourteenth Amendment guarantee to all persons born or naturalized in the United States?",
+    opts: ["The right to bear arms","Citizenship and equal protection under the law","The right to vote regardless of sex","Freedom from unreasonable searches"],
+    answer: 1,
+    explanation: "<strong>Amendment XIV Section 1 (1868)</strong> grants citizenship to all persons born or naturalized in the U.S. and guarantees equal protection and due process against state action. It was a cornerstone of Reconstruction."
+  },
+  {
+    q: "The Twenty-Second Amendment limits the President to how many terms?",
+    opts: ["One term","Two terms","Three terms","No limit"],
+    answer: 1,
+    explanation: "<strong>Amendment XXII (1951)</strong> was passed after Franklin D. Roosevelt was elected to four terms. It limits any person to two elected presidential terms — or one term if they served more than two years of another person's term."
+  },
+  {
+    q: "What is the minimum voting age in the United States, as established by the Twenty-Sixth Amendment?",
+    opts: ["16","17","18","21"],
+    answer: 2,
+    explanation: "<strong>Amendment XXVI (1971)</strong> lowered the voting age from 21 to <strong>18</strong>. It was largely driven by the argument that men being drafted to fight in Vietnam at 18 should also be able to vote."
+  },
+  {
+    q: "Which amendment prohibited the poll tax in federal elections?",
+    opts: ["Amendment XV","Amendment XIX","Amendment XXII","Amendment XXIV"],
+    answer: 3,
+    explanation: "<strong>Amendment XXIV (1964)</strong> abolished poll taxes — fees required to vote — in federal elections. Poll taxes had been used primarily in Southern states to disenfranchise Black voters."
+  },
+  {
+    q: "What does the Tenth Amendment say about powers not delegated to the federal government?",
+    opts: ["They are forbidden entirely","They are reserved to the States or the people","They belong to the President","They must be voted on by Congress"],
+    answer: 1,
+    explanation: "<strong>Amendment X</strong> establishes federalism: powers not granted to the United States by the Constitution, nor prohibited to the states, belong to the states or the people. It is a structural limit on federal power."
+  },
+  {
+    q: "The Fourth Amendment protects citizens from what?",
+    opts: ["Self-incrimination","Cruel and unusual punishment","Unreasonable searches and seizures","Quartering of soldiers"],
+    answer: 2,
+    explanation: "<strong>Amendment IV</strong> requires law enforcement to obtain a warrant based on probable cause before searching persons, homes, papers, or effects. Self-incrimination is Amendment V; cruel punishment is Amendment VIII."
+  },
+  {
+    q: "Which amendment repealed Prohibition?",
+    opts: ["Amendment XVIII","Amendment XIX","Amendment XXI","Amendment XXII"],
+    answer: 2,
+    explanation: "<strong>Amendment XXI (1933)</strong> repealed Amendment XVIII, which had banned the manufacture and sale of intoxicating liquors since 1920. It remains the only amendment ratified by state conventions rather than state legislatures."
+  },
+  {
+    q: "What does the Ninth Amendment establish?",
+    opts: [
+      "That all rights not listed in the Constitution are void",
+      "That listing certain rights does not deny other rights retained by the people",
+      "That Congress has unlimited power",
+      "That states have no reserved rights"
+    ],
+    answer: 1,
+    explanation: "<strong>Amendment IX</strong> was included to prevent the argument that because a right was not listed in the Bill of Rights, the government could infringe upon it. It affirms that the people retain rights beyond those enumerated."
+  },
+  {
+    q: "What is the primary purpose of the Twenty-Fifth Amendment?",
+    opts: [
+      "To establish the income tax",
+      "To lower the voting age",
+      "To set presidential term limits",
+      "To address presidential disability and succession"
+    ],
+    answer: 3,
+    explanation: "<strong>Amendment XXV (1967)</strong> has four sections covering: VP succession to the presidency, filling a VP vacancy, the President voluntarily transferring power, and the VP + Cabinet invoking disability. It was prompted in part by the Kennedy assassination."
+  },
+  {
+    q: "The Sixth Amendment guarantees accused persons which of the following?",
+    opts: [
+      "The right to own property",
+      "A speedy and public trial with assistance of counsel",
+      "Immunity from paying bail",
+      "The right to vote in federal elections"
+    ],
+    answer: 1,
+    explanation: "<strong>Amendment VI</strong> guarantees the right to a speedy and public trial by an impartial jury, to be informed of charges, to confront witnesses, and to have the assistance of counsel for one's defence."
+  },
+  {
+    q: "Which amendment gave Washington, D.C. residents the right to vote in presidential elections?",
+    opts: ["Amendment XX","Amendment XXII","Amendment XXIII","Amendment XXIV"],
+    answer: 2,
+    explanation: "<strong>Amendment XXIII (1961)</strong> granted D.C. a number of electoral votes equal to the least populous state (currently 3). Before this amendment, D.C. residents had no vote in presidential elections despite being subject to federal law."
+  },
+  {
+    q: "The Seventeenth Amendment changed how U.S. Senators are chosen. How are they now selected?",
+    opts: [
+      "Appointed by the President",
+      "Chosen by state legislatures",
+      "Elected directly by the people of each state",
+      "Selected by the Supreme Court"
+    ],
+    answer: 2,
+    explanation: "<strong>Amendment XVII (1913)</strong> changed the selection of U.S. Senators from appointment by state legislatures (the original Constitutional method) to direct popular election. It was part of the Progressive Era's push for more democratic governance."
+  },
+  {
+    q: "What does the Twenty-Seventh Amendment address?",
+    opts: [
+      "Campaign finance reform",
+      "Congressional pay — no pay raise takes effect until after an election",
+      "Presidential pardon authority",
+      "Voting rights for former felons"
+    ],
+    answer: 1,
+    explanation: "<strong>Amendment XXVII</strong> states that no law varying the compensation of Senators and Representatives takes effect until after an intervening election of Representatives. Remarkably, it was originally proposed in <strong>1789</strong> alongside the Bill of Rights but wasn't ratified until <strong>May 7, 1992</strong> — 203 years later."
+  }
+];
+
+const letters = ['A','B','C','D'];
+let answered = new Array(questions.length).fill(null);
+
+function buildQuiz() {
+  const form = document.getElementById('quiz-form');
+  form.innerHTML = '';
+  answered = new Array(questions.length).fill(null);
+  updateProgress();
+
+  questions.forEach((q, qi) => {
+    const card = document.createElement('div');
+    card.className = 'question-card';
+    card.id = 'card-' + qi;
+
+    const num = document.createElement('div');
+    num.className = 'q-number';
+    num.textContent = 'Question ' + (qi + 1) + ' of ' + questions.length;
+    card.appendChild(num);
+
+    const text = document.createElement('div');
+    text.className = 'q-text';
+    text.textContent = q.q;
+    card.appendChild(text);
+
+    const opts = document.createElement('div');
+    opts.className = 'options';
+
+    q.opts.forEach((opt, oi) => {
+      const btn = document.createElement('button');
+      btn.className = 'option-btn';
+      btn.id = 'q' + qi + 'o' + oi;
+      btn.onclick = () => selectAnswer(qi, oi);
+      btn.innerHTML = '<span class="letter">' + letters[oi] + '</span>' + opt;
+      opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+
+    const expl = document.createElement('div');
+    expl.className = 'explanation';
+    expl.id = 'expl-' + qi;
+    expl.innerHTML = q.explanation;
+    card.appendChild(expl);
+
+    form.appendChild(card);
+  });
+}
+
+function selectAnswer(qi, oi) {
+  if (answered[qi] !== null) return;
+  answered[qi] = oi;
+  updateProgress();
+  // Disable all buttons for this question
+  questions[qi].opts.forEach((_, i) => {
+    document.getElementById('q' + qi + 'o' + i).disabled = true;
+  });
+  // Highlight selection
+  const btn = document.getElementById('q' + qi + 'o' + oi);
+  btn.classList.add(oi === questions[qi].answer ? 'correct' : 'wrong');
+}
+
+function updateProgress() {
+  const done = answered.filter(a => a !== null).length;
+  document.getElementById('progress-bar').style.width = (done / questions.length * 100) + '%';
+}
+
+function submitQuiz() {
+  const unanswered = answered.filter(a => a === null).length;
+  if (unanswered > 0) {
+    if (!confirm('You have ' + unanswered + ' unanswered question(s). Submit anyway?')) return;
+  }
+
+  let score = 0;
+  questions.forEach((q, qi) => {
+    // Reveal correct answers and explanations
+    const correctBtn = document.getElementById('q' + qi + 'o' + q.answer);
+    correctBtn.classList.add(answered[qi] === null ? 'revealed-correct' : (answered[qi] === q.answer ? 'correct' : ''));
+    if (answered[qi] !== null && answered[qi] !== q.answer) {
+      correctBtn.classList.add('revealed-correct');
+    }
+    // Disable remaining buttons
+    q.opts.forEach((_, i) => {
+      document.getElementById('q' + qi + 'o' + i).disabled = true;
+    });
+    document.getElementById('expl-' + qi).classList.add('show');
+    document.getElementById('card-' + qi).classList.add('answered');
+    if (answered[qi] === q.answer) score++;
+  });
+
+  document.getElementById('submit-btn').disabled = true;
+  showResults(score);
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function showResults(score) {
+  const pct = score / questions.length;
+  document.getElementById('score-number').textContent = score;
+
+  let title, badge, badgeClass, msg;
+  if (score >= 18) {
+    title = "Outstanding"; badge = "🌟 Constitutional Scholar";
+    badgeClass = "badge-outstanding";
+    msg = "You demonstrated exceptional knowledge of the United States Constitution. You are precisely the kind of informed citizen the Founders envisioned when they placed 'We the People' at the start of the supreme law of the land.";
+  } else if (score >= 15) {
+    title = "Excellent"; badge = "✅ Well Above Passing";
+    badgeClass = "badge-excellent";
+    msg = "Strong performance. You clearly know the constitutional amendments and their historical significance. Review the questions you missed and you will be ready for any civic challenge.";
+  } else if (score >= 12) {
+    title = "Good"; badge = "👍 Above Average";
+    badgeClass = "badge-good";
+    msg = "You have a solid foundation in constitutional knowledge. Study the explanations for the questions you missed — the amendments you are less familiar with are worth mastering.";
+  } else if (score >= 10) {
+    title = "Passing"; badge = "⚠️ Meets Naturalization Standard";
+    badgeClass = "badge-passing";
+    msg = "You meet the minimum threshold. The USCIS naturalization exam requires 6 out of 10 correct. Aim higher — re-read the full constitutional text in the README and retake this test.";
+  } else {
+    title = "Keep Studying"; badge = "📖 Below Passing";
+    badgeClass = "badge-fail";
+    msg = "The Constitution protects you — take the time to understand it. Read through each amendment in the README reference document, then retake this test. Your citizenship, or the citizenship you seek, is worth knowing deeply.";
+  }
+
+  document.getElementById('result-title').textContent = title;
+  document.getElementById('result-badge').textContent = badge;
+  document.getElementById('result-badge').className = 'result-badge ' + badgeClass;
+  document.getElementById('result-msg').textContent = msg;
+  document.getElementById('results').classList.add('show');
+}
+
+function retakeQuiz() {
+  document.getElementById('results').classList.remove('show');
+  document.getElementById('submit-btn').disabled = false;
+  document.getElementById('submit-btn').style.display = 'block';
+  buildQuiz();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+buildQuiz();
+</script>
+</body>
+</html>
