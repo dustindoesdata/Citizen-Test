@@ -1,325 +1,675 @@
-# 🇺🇸 U.S. Constitution & Citizenship — Educational Repository
+# 📖 2025 USCIS Citizenship Test — Complete Study Guide
 
-A complete educational resource for anyone preparing for the U.S. naturalization civics exam, studying American history and government, or wanting to understand the supreme law of the land. Every word of the Constitution's 27 amendments is reproduced verbatim from the [National Constitution Center's enrolled text](https://constitutioncenter.org/media/files/constitution.pdf) — nothing is paraphrased or summarized.
-
----
-
-## 📂 Repository Contents
-
-| File | Description |
-|------|-------------|
-| [`STUDY_GUIDE.md`](./STUDY_GUIDE.md) | All 128 USCIS civics test questions with every accepted answer — the complete material to study, with no multiple choice |
-| [`quiz.html`](./quiz.html) | Interactive civics test replicating the exact 2025 USCIS exam format — 115-question bank, 20 random questions per session, randomized answer order, stops early when you pass or fail |
-| `README.md` | This file — includes the verbatim text of all 27 Constitutional Amendments |
-
----
-
-## 🎯 How to Use This Repository
-
-**To prepare for the citizenship test:**
-1. Study [`STUDY_GUIDE.md`](./STUDY_GUIDE.md) — it contains every question and every accepted answer from the 2025 USCIS civics bank. Learn the material, not answer patterns.
-2. Read the amendments below to understand the constitutional foundation behind the questions.
-3. Open [`quiz.html`](./quiz.html) in any browser to practice under real exam conditions.
-
-**As a reference:**
-The amendments below are the exact text of the supreme law of the land.
-
----
-
-## 🗳️ About the Citizenship Test
-
-The quiz in [`quiz.html`](./quiz.html) replicates the exact mechanics of the **2025 USCIS Naturalization Civics Test** — including the early-stop rule that ends the test the moment you reach the pass or fail threshold. Answer options are randomized on every question.
-
-| | Real USCIS Exam | [`quiz.html`](./quiz.html) |
-|--|--|--|
-| **Format** | Oral — officer asks questions | Multiple choice |
-| **Question bank** | 128 questions | 115 questions* |
-| **Questions per session** | 20 (randomly selected) | 20 (randomly selected) |
-| **Answer order** | N/A — oral | Randomized every question |
-| **Passing score** | 12 correct | 12 correct |
-| **Fail threshold** | 9 incorrect | 9 incorrect |
-| **Stops early?** | Yes | Yes — same rule |
-
-*13 questions require location-specific answers (current governor, your senators, your representative) and cannot be adapted to multiple-choice format.
-
-The 2025 USCIS test applies to anyone who files Form N-400 on or after **October 20, 2025**.
-
----
-
-## ✅ Accuracy & Sources
-
-All constitutional text has been verified word-for-word against the [National Constitution Center's official enrolled text](https://constitutioncenter.org/media/files/constitution.pdf). Quiz questions are drawn directly from the [2025 USCIS 128-question civics test bank](https://www.uscis.gov/sites/default/files/document/questions-and-answers/2025-Civics-Test-128-Questions-and-Answers.pdf).
-
----
-
----
-
-## 📜 The Preamble
-
-> We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.
-
----
-
-## The Bill of Rights — Amendments I through X
-*Ratified December 15, 1791*
-
-> The first ten amendments were demanded by the states as a condition of ratifying the Constitution. They guarantee that the new federal government could not strip individuals of fundamental liberties.
-
----
-
-### Amendment I — Freedom of Religion, Speech, Press, Assembly, and Petition
-*Ratified December 15, 1791*
-
-> Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press, or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.
-
----
-
-### Amendment II — Right to Bear Arms
-*Ratified December 15, 1791*
-
-> A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.
-
----
-
-### Amendment III — Quartering of Soldiers
-*Ratified December 15, 1791*
-
-> No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.
-
----
-
-### Amendment IV — Search and Seizure
-*Ratified December 15, 1791*
-
-> The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.
-
----
-
-### Amendment V — Grand Jury, Double Jeopardy, Self-Incrimination, Due Process, Eminent Domain
-*Ratified December 15, 1791*
-
-> No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.
-
----
-
-### Amendment VI — Right to Speedy Trial, Confrontation of Witnesses, Assistance of Counsel
-*Ratified December 15, 1791*
-
-> In all criminal prosecutions, the accused shall enjoy the right to a speedy and public trial, by an impartial jury of the State and district wherein the crime shall have been committed, which district shall have been previously ascertained by law, and to be informed of the nature and cause of the accusation; to be confronted with the witnesses against him; to have compulsory process for obtaining witnesses in his favor, and to have the Assistance of Counsel for his defence.
-
----
-
-### Amendment VII — Trial by Jury in Civil Cases
-*Ratified December 15, 1791*
-
-> In suits at common law, where the value in controversy shall exceed twenty dollars, the right of trial by jury shall be preserved, and no fact tried by a jury shall be otherwise reexamined in any Court of the United States, than according to the rules of the common law.
-
----
-
-### Amendment VIII — Excessive Bail, Fines, and Cruel and Unusual Punishment
-*Ratified December 15, 1791*
-
-> Excessive bail shall not be required, nor excessive fines imposed, nor cruel and unusual punishments inflicted.
-
----
-
-### Amendment IX — Rights Retained by the People
-*Ratified December 15, 1791*
-
-> The enumeration in the Constitution, of certain rights, shall not be construed to deny or disparage others retained by the people.
-
----
-
-### Amendment X — Powers Reserved to the States
-*Ratified December 15, 1791*
-
-> The powers not delegated to the United States by the Constitution, nor prohibited by it to the States, are reserved to the States respectively, or to the people.
-
----
-
-## Amendments XI through XXVII
-
----
-
-### Amendment XI — Sovereign Immunity / Suits Against States
-*Ratified February 7, 1795*
-
-> The Judicial power of the United States shall not be construed to extend to any suit in law or equity, commenced or prosecuted against one of the United States by Citizens of another State, or by Citizens or Subjects of any Foreign State.
-
----
-
-### Amendment XII — Election of President and Vice President
-*Ratified June 15, 1804*
-
-> The Electors shall meet in their respective states, and vote by ballot for President and Vice-President, one of whom, at least, shall not be an inhabitant of the same state with themselves; they shall name in their ballots the person voted for as President, and in distinct ballots the person voted for as Vice-President, and they shall make distinct lists of all persons voted for as President, and of all persons voted for as Vice-President, and of the number of votes for each, which lists they shall sign and certify, and transmit sealed to the seat of the government of the United States, directed to the President of the Senate;-the President of the Senate shall, in the presence of the Senate and House of Representatives, open all the certificates and the votes shall then be counted;-The person having the greatest number of votes for President, shall be the President, if such number be a majority of the whole number of Electors appointed; and if no person have such majority, then from the persons having the highest numbers not exceeding three on the list of those voted for as President, the House of Representatives shall choose immediately, by ballot, the President. But in choosing the President, the votes shall be taken by states, the representation from each state having one vote; a quorum for this purpose shall consist of a member or members from two-thirds of the states, and a majority of all the states shall be necessary to a choice. [And if the House of Representatives shall not choose a President whenever the right of choice shall devolve upon them, before the fourth day of March next following, then the Vice-President shall act as President, as in case of the death or other constitutional disability of the President.]* The person having the greatest number of votes as Vice-President, shall be the Vice-President, if such number be a majority of the whole number of Electors appointed, and if no person have a majority, then from the two highest numbers on the list, the Senate shall choose the Vice-President; a quorum for the purpose shall consist of two-thirds of the whole number of Senators, and a majority of the whole number shall be necessary to a choice. But no person constitutionally ineligible to the office of President shall be eligible to that of Vice-President of the United States.
-
-> *Bracketed text superseded by Section 3 of the 20th Amendment.*
-
----
-
-### Amendment XIII — Abolition of Slavery
-*Ratified December 6, 1865*
-
-> **Section 1.** Neither slavery nor involuntary servitude, except as a punishment for crime whereof the party shall have been duly convicted, shall exist within the United States, or any place subject to their jurisdiction.
+> **How to use this guide**
+> This document contains every possible question on the 2025 USCIS Naturalization Civics Test, along with all accepted answers — exactly as published by the U.S. Citizenship and Immigration Services. Study the questions and answers here. When ready, open `quiz.html` to practice under exam conditions.
 >
-> **Section 2.** Congress shall have power to enforce this article by appropriate legislation.
+> Questions marked with ★ are included in the special 20-question bank for applicants who are 65 or older and have been lawful permanent residents for 20+ years.
+>
+> Some answers change based on elections or appointments. Visit [uscis.gov/citizenship/testupdates](https://www.uscis.gov/citizenship/testupdates) before your interview.
 
 ---
 
-### Amendment XIV — Citizenship, Equal Protection, Due Process
-*Ratified July 9, 1868*
+## American Government
 
-> **Section 1.** All persons born or naturalized in the United States and subject to the jurisdiction thereof, are citizens of the United States and of the State wherein they reside. No State shall make or enforce any law which shall abridge the privileges or immunities of citizens of the United States; nor shall any State deprive any person of life, liberty, or property, without due process of law; nor deny to any person within its jurisdiction the equal protection of the laws.
->
-> **Section 2.** Representatives shall be apportioned among the several States according to their respective numbers, counting the whole number of persons in each State, excluding Indians not taxed. But when the right to vote at any election for the choice of electors for President and Vice President of the United States, Representatives in Congress, the Executive and Judicial officers of a State, or the members of the Legislature thereof, is denied to any of the male inhabitants of such State, [being twenty-one years of age,]* and citizens of the United States, or in any way abridged, except for participation in rebellion, or other crime, the basis of representation therein shall be reduced in the proportion which the number of such male citizens shall bear to the whole number of male citizens twenty-one years of age in such State.
->
-> **Section 3.** No person shall be a Senator or Representative in Congress, or elector of President and Vice President, or hold any office, civil or military, under the United States, or under any State, who, having previously taken an oath, as a member of Congress, or as an officer of the United States, or as a member of any State legislature, or as an executive or judicial officer of any State, to support the Constitution of the United States, shall have engaged in insurrection or rebellion against the same, or given aid or comfort to the enemies thereof. But Congress may by a vote of two-thirds of each House, remove such disability.
->
-> **Section 4.** The validity of the public debt of the United States, authorized by law, including debts incurred for payment of pensions and bounties for services in suppressing insurrection or rebellion, shall not be questioned. But neither the United States nor any State shall assume or pay any debt or obligation incurred in aid of insurrection or rebellion against the United States, or any claim for the loss or emancipation of any slave; but all such debts, obligations and claims shall be held illegal and void.
->
-> **Section 5.** The Congress shall have the power to enforce, by appropriate legislation, the provisions of this article.
+### A — Principles of American Government
 
-> *Bracketed text changed by Section 1 of the 26th Amendment.*
+**1. What is the form of government of the United States?**
+- Republic
+- Constitution-based federal republic
+- Representative democracy
 
----
+**2. ★ What is the supreme law of the land?**
+- (U.S.) Constitution
 
-### Amendment XV — Right to Vote — Race, Color, or Previous Condition of Servitude
-*Ratified February 3, 1870*
+**3. Name one thing the U.S. Constitution does.**
+- Forms the government
+- Defines powers of government
+- Defines the parts of government
+- Protects the rights of the people
 
-> **Section 1.** The right of citizens of the United States to vote shall not be denied or abridged by the United States or by any State on account of race, color, or previous condition of servitude.
->
-> **Section 2.** The Congress shall have the power to enforce this article by appropriate legislation.
+**4. The U.S. Constitution starts with the words "We the People." What does "We the People" mean?**
+- Self-government
+- Popular sovereignty
+- Consent of the governed
+- People should govern themselves
+- (Example of) social contract
 
----
+**5. How are changes made to the U.S. Constitution?**
+- Amendments
+- The amendment process
 
-### Amendment XVI — Income Tax
-*Ratified February 3, 1913*
+**6. What does the Bill of Rights protect?**
+- (The basic) rights of Americans
+- (The basic) rights of people living in the United States
 
-> The Congress shall have power to lay and collect taxes on incomes, from whatever source derived, without apportionment among the several States, and without regard to any census or enumeration.
+**7. ★ How many amendments does the U.S. Constitution have?**
+- Twenty-seven (27)
 
----
+**8. Why is the Declaration of Independence important?**
+- It says America is free from British control.
+- It says all people are created equal.
+- It identifies inherent rights.
+- It identifies individual freedoms.
 
-### Amendment XVII — Direct Election of Senators
-*Ratified April 8, 1913*
+**9. What founding document said the American colonies were free from Britain?**
+- Declaration of Independence
 
-> The Senate of the United States shall be composed of two Senators from each State, elected by the people thereof, for six years; and each Senator shall have one vote. The electors in each State shall have the qualifications requisite for electors of the most numerous branch of the State legislatures.
->
-> When vacancies happen in the representation of any State in the Senate, the executive authority of such State shall issue writs of election to fill such vacancies: Provided, That the legislature of any State may empower the executive thereof to make temporary appointments until the people fill the vacancies by election as the legislature may direct.
->
-> This amendment shall not be so construed as to affect the election or term of any Senator chosen before it becomes valid as part of the Constitution.
+**10. ★ Name one right or freedom from the First Amendment.**
+- Speech
+- Religion
+- Assembly
+- Press
+- Petition the government
 
----
+**11. The words "Life, Liberty, and the pursuit of Happiness" are in what founding document?**
+- Declaration of Independence
 
-### Amendment XVIII — Prohibition of Intoxicating Liquors *(Repealed by Amendment XXI, 1933)*
-*Ratified January 16, 1919*
+**12. ★ What is the economic system of the United States?**
+- Capitalism
+- Free market economy
 
-> **Section 1.** After one year from the ratification of this article the manufacture, sale, or transportation of intoxicating liquors within, the importation thereof into, or the exportation thereof from the United States and all territory subject to the jurisdiction thereof for beverage purposes is hereby prohibited.
->
-> **Section 2.** The Congress and the several States shall have concurrent power to enforce this article by appropriate legislation.
->
-> **Section 3.** This article shall be inoperative unless it shall have been ratified as an amendment to the Constitution by the legislatures of the several States, as provided in the Constitution, within seven years from the date of the submission hereof to the States by the Congress.
+**13. What is the rule of law?**
+- Everyone must follow the law.
+- Leaders must obey the law.
+- Government must obey the law.
+- No one is above the law.
 
----
+**14. Many documents influenced the U.S. Constitution. Name one.**
+- Declaration of Independence
+- Articles of Confederation
+- Federalist Papers
+- Anti-Federalist Papers
+- Virginia Declaration of Rights
+- Fundamental Orders of Connecticut
+- Mayflower Compact
+- Iroquois Great Law of Peace
 
-### Amendment XIX — Women's Right to Vote
-*Ratified August 18, 1920*
-
-> The right of citizens of the United States to vote shall not be denied or abridged by the United States or by any State on account of sex.
->
-> Congress shall have power to enforce this article by appropriate legislation.
-
----
-
-### Amendment XX — Lame Duck Amendment / Presidential and Congressional Terms
-*Ratified January 23, 1933*
-
-> **Section 1.** The terms of the President and the Vice President shall end at noon on the 20th day of January, and the terms of Senators and Representatives at noon on the 3d day of January, of the years in which such terms would have ended if this article had not been ratified; and the terms of their successors shall then begin.
->
-> **Section 2.** The Congress shall assemble at least once in every year, and such meeting shall begin at noon on the 3d day of January, unless they shall by law appoint a different day.
->
-> **Section 3.** If, at the time fixed for the beginning of the term of the President, the President elect shall have died, the Vice President elect shall become President. If a President shall not have been chosen before the time fixed for the beginning of his term, or if the President elect shall have failed to qualify, then the Vice President elect shall act as President until a President shall have qualified; and the Congress may by law provide for the case wherein neither a President elect nor a Vice President shall have qualified, declaring who shall then act as President, or the manner in which one who is to act shall be selected, and such person shall act accordingly until a President or Vice President shall have qualified.
->
-> **Section 4.** The Congress may by law provide for the case of the death of any of the persons from whom the House of Representatives may choose a President whenever the right of choice shall have devolved upon them, and for the case of the death of any of the persons from whom the Senate may choose a Vice President whenever the right of choice shall have devolved upon them.
->
-> **Section 5.** Sections 1 and 2 shall take effect on the 15th day of October following the ratification of this article.
->
-> **Section 6.** This article shall be inoperative unless it shall have been ratified as an amendment to the Constitution by the legislatures of three-fourths of the several States within seven years from the date of its submission.
-
----
-
-### Amendment XXI — Repeal of Prohibition
-*Ratified December 5, 1933*
-
-> **Section 1.** The eighteenth article of amendment to the Constitution of the United States is hereby repealed.
->
-> **Section 2.** The transportation or importation into any State, Territory, or possession of the United States for delivery or use therein of intoxicating liquors, in violation of the laws thereof, is hereby prohibited.
->
-> **Section 3.** This article shall be inoperative unless it shall have been ratified as an amendment to the Constitution by conventions in the several States, as provided in the Constitution, within seven years from the date of the submission hereof to the States by the Congress.
+**15. There are three branches of government. Why?**
+- So one part does not become too powerful
+- Checks and balances
+- Separation of powers
 
 ---
 
-### Amendment XXII — Two-Term Limit on the Presidency
-*Ratified February 27, 1951*
+### B — System of Government
 
-> **Section 1.** No person shall be elected to the office of the President more than twice, and no person who has held the office of President, or acted as President, for more than two years of a term to which some other person was elected President shall be elected to the office of the President more than once. But this Article shall not apply to any person holding the office of President when this Article was proposed by the Congress, and shall not prevent any person who may be holding the office of President, or acting as President, during the term within which this Article becomes operative from holding the office of President or acting as President during the remainder of such term.
->
-> **Section 2.** This article shall be inoperative unless it shall have been ratified as an amendment to the Constitution by the legislatures of three-fourths of the several States within seven years from the date of its submission to the States by the Congress.
+**16. Name the three branches of government.**
+- Legislative, executive, and judicial
+- Congress, president, and the courts
+
+**17. The President of the United States is in charge of which branch of government?**
+- Executive branch
+
+**18. What part of the federal government writes laws?**
+- (U.S.) Congress
+- (U.S. or national) legislature
+- Legislative branch
+
+**19. What are the two parts of the U.S. Congress?**
+- Senate and House (of Representatives)
+
+**20. ★ Name one power of the U.S. Congress.**
+- Writes laws
+- Declares war
+- Makes the federal budget
+
+**21. How many U.S. senators are there?**
+- One hundred (100)
+
+**22. How long is a term for a U.S. senator?**
+- Six (6) years
+
+**23. Who is one of your state's U.S. senators now?**
+- Answers will vary. *(D.C. residents: D.C. has no U.S. senators.)*
+
+**24. How many voting members are in the House of Representatives?**
+- Four hundred thirty-five (435)
+
+**25. How long is a term for a member of the House of Representatives?**
+- Two (2) years
+
+**26. Why do U.S. representatives serve shorter terms than U.S. senators?**
+- To more closely follow public opinion
+
+**27. How many senators does each state have?**
+- Two (2)
+
+**28. Why does each state have two senators?**
+- Equal representation (for small states)
+- The Great Compromise (Connecticut Compromise)
+
+**29. Name your U.S. representative.**
+- Answers will vary.
+
+**30. ★ What is the name of the Speaker of the House of Representatives now?**
+- Visit [uscis.gov/citizenship/testupdates](https://www.uscis.gov/citizenship/testupdates)
+
+**31. Who does a U.S. senator represent?**
+- Citizens of their state
+- People of their state
+
+**32. Who elects U.S. senators?**
+- Citizens from their state
+
+**33. Who does a member of the House of Representatives represent?**
+- Citizens in their (congressional) district
+- People from their (congressional) district
+
+**34. Who elects members of the House of Representatives?**
+- Citizens from their (congressional) district
+
+**35. Some states have more representatives than other states. Why?**
+- (Because of) the state's population
+- (Because) they have more people
+
+**36. ★ The President of the United States is elected for how many years?**
+- Four (4) years
+
+**37. The President of the United States can serve only two terms. Why?**
+- (Because of) the 22nd Amendment
+- To keep the president from becoming too powerful
+
+**38. ★ What is the name of the President of the United States now?**
+- Visit [uscis.gov/citizenship/testupdates](https://www.uscis.gov/citizenship/testupdates)
+
+**39. ★ What is the name of the Vice President of the United States now?**
+- Visit [uscis.gov/citizenship/testupdates](https://www.uscis.gov/citizenship/testupdates)
+
+**40. If the president can no longer serve, who becomes president?**
+- The Vice President (of the United States)
+
+**41. Name one power of the president.**
+- Signs bills into law
+- Vetoes bills
+- Enforces laws
+- Commander in Chief (of the military)
+- Chief diplomat
+- Appoints federal judges
+
+**42. Who is Commander in Chief of the U.S. military?**
+- The President (of the United States)
+
+**43. Who signs bills to become laws?**
+- The President (of the United States)
+
+**44. ★ Who vetoes bills?**
+- The President (of the United States)
+
+**45. Who appoints federal judges?**
+- The President (of the United States)
+
+**46. The executive branch has many parts. Name one.**
+- President (of the United States)
+- Cabinet
+- Federal departments and agencies
+
+**47. What does the President's Cabinet do?**
+- Advises the President (of the United States)
+
+**48. What are two Cabinet-level positions?**
+- Attorney General
+- Secretary of Agriculture
+- Secretary of Commerce
+- Secretary of Defense
+- Secretary of Education
+- Secretary of Energy
+- Secretary of Health and Human Services
+- Secretary of Homeland Security
+- Secretary of Housing and Urban Development
+- Secretary of the Interior
+- Secretary of Labor
+- Secretary of State
+- Secretary of Transportation
+- Secretary of the Treasury
+- Secretary of Veterans Affairs
+- Vice President (of the United States)
+- Administrator of the Environmental Protection Agency
+- Administrator of the Small Business Administration
+- Director of the Central Intelligence Agency
+- Director of the Office of Management and Budget
+- Director of National Intelligence
+- United States Trade Representative
+
+**49. Why is the Electoral College important?**
+- It decides who is elected president.
+- It provides a compromise between the popular election of the president and congressional selection.
+
+**50. What is one part of the judicial branch?**
+- Supreme Court
+- Federal Courts
+
+**51. What does the judicial branch do?**
+- Reviews laws
+- Explains laws
+- Resolves disputes (disagreements) about the law
+- Decides if a law goes against the (U.S.) Constitution
+
+**52. ★ What is the highest court in the United States?**
+- Supreme Court
+
+**53. How many seats are on the Supreme Court?**
+- Nine (9)
+
+**54. How many Supreme Court justices are usually needed to decide a case?**
+- Five (5)
+
+**55. How long do Supreme Court justices serve?**
+- (For) life
+- Lifetime appointment
+- (Until) retirement
+
+**56. Supreme Court justices serve for life. Why?**
+- To be independent (of politics)
+- To limit outside (political) influence
+
+**57. Who is the Chief Justice of the United States now?**
+- Visit [uscis.gov/citizenship/testupdates](https://www.uscis.gov/citizenship/testupdates)
+
+**58. Name one power that is only for the federal government.**
+- Print paper money
+- Mint coins
+- Declare war
+- Create an army
+- Make treaties
+- Set foreign policy
+
+**59. Name one power that is only for the states.**
+- Provide schooling and education
+- Provide protection (police)
+- Provide safety (fire departments)
+- Give a driver's license
+- Approve zoning and land use
+
+**60. What is the purpose of the 10th Amendment?**
+- (It states that the) powers not given to the federal government belong to the states or to the people.
+
+**61. ★ Who is the governor of your state now?**
+- Answers will vary. *(D.C. residents: D.C. does not have a governor.)*
+
+**62. What is the capital of your state?**
+- Answers will vary. *(D.C. residents: D.C. is not a state and does not have a capital.)*
 
 ---
 
-### Amendment XXIII — Presidential Vote for Washington, D.C.
-*Ratified March 29, 1961*
+### C — Rights and Responsibilities
 
-> **Section 1.** The District constituting the seat of Government of the United States shall appoint in such manner as Congress may direct:
->
-> A number of electors of President and Vice President equal to the whole number of Senators and Representatives in Congress to which the District would be entitled if it were a State, but in no event more than the least populous State; they shall be in addition to those appointed by the States, but they shall be considered, for the purposes of the election of President and Vice President, to be electors appointed by a State; and they shall meet in the District and perform such duties as provided by the twelfth article of amendment.
->
-> **Section 2.** The Congress shall have power to enforce this article by appropriate legislation.
+**63. There are four amendments to the U.S. Constitution about who can vote. Describe one of them.**
+- Citizens eighteen (18) and older (can vote).
+- You don't have to pay (a poll tax) to vote.
+- Any citizen can vote. (Women and men can vote.)
+- A male citizen of any race (can vote).
+
+**64. Who can vote in federal elections, run for federal office, and serve on a jury in the United States?**
+- Citizens
+- U.S. citizens
+
+**65. What are three rights of everyone living in the United States?**
+- Freedom of expression
+- Freedom of speech
+- Freedom of assembly
+- Freedom to petition the government
+- Freedom of religion
+- The right to bear arms
+
+**66. ★ What do we show loyalty to when we say the Pledge of Allegiance?**
+- The United States
+- The flag
+
+**67. Name two promises that new citizens make in the Oath of Allegiance.**
+- Give up loyalty to other countries
+- Defend the (U.S.) Constitution
+- Obey the laws of the United States
+- Serve in the military (if needed)
+- Serve (help, do important work for) the nation (if needed)
+- Be loyal to the United States
+
+**68. How can people become United States citizens?**
+- Be born in the United States, under the conditions set by the 14th Amendment
+- Naturalize
+- Derive citizenship (under conditions set by Congress)
+
+**69. What are two examples of civic participation in the United States?**
+- Vote
+- Run for office
+- Join a political party
+- Help with a campaign
+- Join a civic group
+- Join a community group
+- Give an elected official your opinion (on an issue)
+- Contact elected officials
+- Support or oppose an issue or policy
+- Write to a newspaper
+
+**70. What is one way Americans can serve their country?**
+- Vote
+- Pay taxes
+- Obey the law
+- Serve in the military
+- Run for office
+- Work for local, state, or federal government
+
+**71. Why is it important to pay federal taxes?**
+- Required by law
+- All people pay to fund the federal government
+- Required by the (U.S.) Constitution (16th Amendment)
+- Civic duty
+
+**72. It is important for all men age 18 through 25 to register for the Selective Service. Name one reason why.**
+- Required by law
+- Civic duty
+- Makes the draft fair, if needed
 
 ---
 
-### Amendment XXIV — Abolition of Poll Taxes in Federal Elections
-*Ratified January 23, 1964*
+## American History
 
-> **Section 1.** The right of citizens of the United States to vote in any primary or other election for President or Vice President, for electors for President or Vice President, or for Senator or Representative in Congress, shall not be denied or abridged by the United States or any State by reason of failure to pay poll tax or other tax.
->
-> **Section 2.** The Congress shall have power to enforce this article by appropriate legislation.
+### A — Colonial Period and Independence
+
+**73. The colonists came to America for many reasons. Name one.**
+- Freedom
+- Political liberty
+- Religious freedom
+- Economic opportunity
+- Escape persecution
+
+**74. ★ Who lived in America before the Europeans arrived?**
+- American Indians
+- Native Americans
+
+**75. What group of people was taken and sold as slaves?**
+- Africans
+- People from Africa
+
+**76. What war did the Americans fight to win independence from Britain?**
+- American Revolution
+- The (American) Revolutionary War
+- War for (American) Independence
+
+**77. Name one reason why the Americans declared independence from Britain.**
+- High taxes (taxation without representation)
+- British soldiers stayed in Americans' houses (boarding, quartering)
+- They did not have self-government
+- Boston Massacre
+- Boston Tea Party (Tea Act)
+- Stamp Act
+- Sugar Act
+- Townshend Acts
+- Intolerable (Coercive) Acts
+
+**78. ★ Who wrote the Declaration of Independence?**
+- (Thomas) Jefferson
+
+**79. When was the Declaration of Independence adopted?**
+- July 4, 1776
+
+**80. The American Revolution had many important events. Name one.**
+- (Battle of) Bunker Hill
+- Declaration of Independence
+- Washington Crossing the Delaware (Battle of Trenton)
+- (Battle of) Saratoga
+- Valley Forge (Encampment)
+- (Battle of) Yorktown (British surrender at Yorktown)
+
+**81. There were 13 original states. Name five.**
+- New Hampshire, Massachusetts, Rhode Island, Connecticut, New York, New Jersey, Pennsylvania, Delaware, Maryland, Virginia, North Carolina, South Carolina, Georgia
+
+**82. What founding document was written in 1787?**
+- (U.S.) Constitution
+
+**83. The Federalist Papers supported the passage of the U.S. Constitution. Name one of the writers.**
+- (James) Madison
+- (Alexander) Hamilton
+- (John) Jay
+- Publius
+
+**84. Why were the Federalist Papers important?**
+- They helped people understand the (U.S.) Constitution.
+- They supported passing the (U.S.) Constitution.
+
+**85. Benjamin Franklin is famous for many things. Name one.**
+- Founded the first free public libraries
+- First Postmaster General of the United States
+- Helped write the Declaration of Independence
+- Inventor
+- U.S. diplomat
+
+**86. ★ George Washington is famous for many things. Name one.**
+- "Father of Our Country"
+- First president of the United States
+- General of the Continental Army
+- President of the Constitutional Convention
+
+**87. Thomas Jefferson is famous for many things. Name one.**
+- Writer of the Declaration of Independence
+- Third president of the United States
+- Doubled the size of the United States (Louisiana Purchase)
+- First Secretary of State
+- Founded the University of Virginia
+- Writer of the Virginia Statute on Religious Freedom
+
+**88. James Madison is famous for many things. Name one.**
+- "Father of the Constitution"
+- Fourth president of the United States
+- President during the War of 1812
+- One of the writers of the Federalist Papers
+
+**89. Alexander Hamilton is famous for many things. Name one.**
+- First Secretary of the Treasury
+- One of the writers of the Federalist Papers
+- Helped establish the First Bank of the United States
+- Aide to General George Washington
+- Member of the Continental Congress
 
 ---
 
-### Amendment XXV — Presidential Disability and Succession
-*Ratified February 10, 1967*
+### B — 1800s
 
-> **Section 1.** In case of the removal of the President from office or of his death or resignation, the Vice President shall become President.
->
-> **Section 2.** Whenever there is a vacancy in the office of the Vice President, the President shall nominate a Vice President who shall take office upon confirmation by a majority vote of both Houses of Congress.
->
-> **Section 3.** Whenever the President transmits to the President pro tempore of the Senate and the Speaker of the House of Representatives his written declaration that he is unable to discharge the powers and duties of his office, and until he transmits to them a written declaration to the contrary, such powers and duties shall be discharged by the Vice President as Acting President.
->
-> **Section 4.** Whenever the Vice President and a majority of either the principal officers of the executive departments or of such other body as Congress may by law provide, transmit to the President pro tempore of the Senate and the Speaker of the House of Representatives their written declaration that the President is unable to discharge the powers and duties of his office, the Vice President shall immediately assume the powers and duties of the office as Acting President.
->
-> Thereafter, when the President transmits to the President pro tempore of the Senate and the Speaker of the House of Representatives his written declaration that no inability exists, he shall resume the powers and duties of his office unless the Vice President and a majority of either the principal officers of the executive department or of such other body as Congress may by law provide, transmit within four days to the President pro tempore of the Senate and the Speaker of the House of Representatives their written declaration that the President is unable to discharge the powers and duties of his office. Thereupon Congress shall decide the issue, assembling within forty-eight hours for that purpose if not in session. If the Congress, within twenty-one days after receipt of the latter written declaration, or, if Congress is not in session, within twenty-one days after Congress is required to assemble, determines by two-thirds vote of both Houses that the President is unable to discharge the powers and duties of his office, the Vice President shall continue to discharge the same as Acting President; otherwise, the President shall resume the powers and duties of his office.
+**90. What territory did the United States buy from France in 1803?**
+- Louisiana Territory
+- Louisiana
+
+**91. Name one war fought by the United States in the 1800s.**
+- War of 1812
+- Mexican-American War
+- Civil War
+- Spanish-American War
+
+**92. Name the U.S. war between the North and the South.**
+- The Civil War
+
+**93. The Civil War had many important events. Name one.**
+- (Battle of) Fort Sumter
+- Emancipation Proclamation
+- (Battle of) Vicksburg
+- (Battle of) Gettysburg
+- Sherman's March
+- (Surrender at) Appomattox
+- (Battle of) Antietam/Sharpsburg
+- Lincoln was assassinated.
+
+**94. ★ Abraham Lincoln is famous for many things. Name one.**
+- Freed the slaves (Emancipation Proclamation)
+- Saved (or preserved) the Union
+- Led the United States during the Civil War
+- 16th president of the United States
+- Delivered the Gettysburg Address
+
+**95. What did the Emancipation Proclamation do?**
+- Freed the slaves
+- Freed slaves in the Confederacy
+- Freed slaves in the Confederate states
+- Freed slaves in most Southern states
+
+**96. What U.S. war ended slavery?**
+- The Civil War
+
+**97. What amendment says all persons born or naturalized in the United States, and subject to the jurisdiction thereof, are U.S. citizens?**
+- 14th Amendment
+
+**98. When did all men get the right to vote?**
+- After the Civil War
+- During Reconstruction
+- (With the) 15th Amendment
+- 1870
+
+**99. Name one leader of the women's rights movement in the 1800s.**
+- Susan B. Anthony
+- Elizabeth Cady Stanton
+- Sojourner Truth
+- Harriet Tubman
+- Lucretia Mott
+- Lucy Stone
 
 ---
 
-### Amendment XXVI — Right to Vote at Age 18
-*Ratified July 1, 1971*
+### C — Recent American History and Other Important Historical Information
 
-> **Section 1.** The right of citizens of the United States, who are eighteen years of age or older, to vote shall not be denied or abridged by the United States or by any State on account of age.
->
-> **Section 2.** The Congress shall have power to enforce this article by appropriate legislation.
+**100. Name one war fought by the United States in the 1900s.**
+- World War I
+- World War II
+- Korean War
+- Vietnam War
+- (Persian) Gulf War
+
+**101. Why did the United States enter World War I?**
+- Because Germany attacked U.S. (civilian) ships
+- To support the Allied Powers (England, France, Italy, and Russia)
+- To oppose the Central Powers (Germany, Austria-Hungary, the Ottoman Empire, and Bulgaria)
+
+**102. When did all women get the right to vote?**
+- 1920
+- After World War I
+- (With the) 19th Amendment
+
+**103. What was the Great Depression?**
+- Longest economic recession in modern history
+
+**104. When did the Great Depression start?**
+- The Great Crash (1929)
+- Stock market crash of 1929
+
+**105. Who was president during the Great Depression and World War II?**
+- (Franklin) Roosevelt
+
+**106. Why did the United States enter World War II?**
+- (Bombing of) Pearl Harbor
+- Japanese attacked Pearl Harbor
+- To support the Allied Powers (England, France, and Russia)
+- To oppose the Axis Powers (Germany, Italy, and Japan)
+
+**107. Dwight Eisenhower is famous for many things. Name one.**
+- General during World War II
+- President at the end of (during) the Korean War
+- 34th president of the United States
+- Signed the Federal-Aid Highway Act of 1956 (Created the Interstate System)
+
+**108. Who was the United States' main rival during the Cold War?**
+- Soviet Union
+- USSR
+- Russia
+
+**109. During the Cold War, what was one main concern of the United States?**
+- Communism
+- Nuclear war
+
+**110. Why did the United States enter the Korean War?**
+- To stop the spread of communism
+
+**111. Why did the United States enter the Vietnam War?**
+- To stop the spread of communism
+
+**112. What did the civil rights movement do?**
+- Fought to end racial discrimination
+
+**113. ★ Martin Luther King, Jr. is famous for many things. Name one.**
+- Fought for civil rights
+- Worked for equality for all Americans
+- Worked to ensure that people would "not be judged by the color of their skin, but by the content of their character"
+
+**114. Why did the United States enter the Persian Gulf War?**
+- To force the Iraqi military from Kuwait
+
+**115. ★ What major event happened on September 11, 2001 in the United States?**
+- Terrorists attacked the United States
+- Terrorists took over two planes and crashed them into the World Trade Center in New York City
+- Terrorists took over a plane and crashed into the Pentagon in Arlington, Virginia
+- Terrorists took over a plane originally aimed at Washington, D.C., and crashed in a field in Pennsylvania
+
+**116. Name one U.S. military conflict after the September 11, 2001 attacks.**
+- (Global) War on Terror
+- War in Afghanistan
+- War in Iraq
+
+**117. Name one American Indian tribe in the United States.**
+- Apache, Blackfeet, Cayuga, Cherokee, Cheyenne, Chippewa, Choctaw, Creek, Crow, Hopi, Huron, Inupiat, Lakota, Mohawk, Mohegan, Navajo, Oneida, Onondaga, Pueblo, Seminole, Seneca, Shawnee, Sioux, Teton, Tuscarora *(and others — visit [bia.gov](https://www.bia.gov) for the complete list)*
+
+**118. Name one example of an American innovation.**
+- Light bulb
+- Automobile (cars, combustible engine)
+- Skyscrapers
+- Airplane
+- Assembly line
+- Landing on the moon
+- Integrated circuit (IC)
 
 ---
 
-### Amendment XXVII — Congressional Compensation
-*Ratified May 7, 1992 (Originally proposed September 25, 1789)*
+## Symbols and Holidays
 
-> No law, varying the compensation for the services of the Senators and Representatives, shall take effect, until an election of representatives shall have intervened.
+### A — Symbols
+
+**119. What is the capital of the United States?**
+- Washington, D.C.
+
+**120. Where is the Statue of Liberty?**
+- New York (Harbor)
+- Liberty Island *(Also acceptable: New Jersey, near New York City, or on the Hudson River)*
+
+**121. ★ Why does the flag have 13 stripes?**
+- (Because there were) 13 original colonies
+- (Because the stripes) represent the original colonies
+
+**122. Why does the flag have 50 stars?**
+- (Because there is) one star for each state
+- (Because each star represents) a state
+- (Because there are) 50 states
+
+**123. What is the name of the national anthem?**
+- The Star-Spangled Banner
+
+**124. The Nation's first motto was "E Pluribus Unum." What does that mean?**
+- Out of many, one
+- We all become one
 
 ---
 
-*All constitutional text verified word-for-word against the [National Constitution Center's official enrolled text](https://constitutioncenter.org/media/files/constitution.pdf).*
+### B — Holidays
+
+**125. What is Independence Day?**
+- A holiday to celebrate U.S. independence (from Britain)
+- The country's birthday
+
+**126. ★ Name three national U.S. holidays.**
+- New Year's Day
+- Martin Luther King, Jr. Day
+- Presidents Day (Washington's Birthday)
+- Memorial Day
+- Independence Day
+- Labor Day
+- Columbus Day
+- Veterans Day
+- Thanksgiving Day
+- Christmas Day
+
+**127. What is Memorial Day?**
+- A holiday to honor soldiers who died in military service
+
+**128. What is Veterans Day?**
+- A holiday to honor people in the (U.S.) military
+- A holiday to honor people who have served (in the U.S. military)
 
 ---
 
-*This repository is maintained as a public educational resource.*
+*Questions and answers reproduced from the official [2025 USCIS 128-Question Civics Test](https://www.uscis.gov/sites/default/files/document/questions-and-answers/2025-Civics-Test-128-Questions-and-Answers.pdf). Visit [uscis.gov/citizenship/testupdates](https://www.uscis.gov/citizenship/testupdates) for answers that change with elections or appointments.*
+
+*← Return to [README.md](./README.md)*
