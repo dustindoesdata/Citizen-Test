@@ -8,7 +8,7 @@ A complete educational resource for anyone preparing for the U.S. naturalization
 
 | File | Description |
 |------|-------------|
-| [`STUDY_GUIDE.md`](./STUDY_GUIDE.md) | All 128 USCIS civics test questions with every accepted answer — the complete material to study, with no multiple choice |
+| [`study-guide.md`](./study-guide.md) | All 128 USCIS civics test questions with every accepted answer — the complete material to study, with no multiple choice |
 | [`quiz.html`](./quiz.html) | Interactive civics test replicating the exact 2025 USCIS exam format — 115-question bank, 20 random questions per session, randomized answer order, stops early when you pass or fail |
 | `README.md` | This file — includes the verbatim text of all 27 Constitutional Amendments |
 
@@ -17,7 +17,7 @@ A complete educational resource for anyone preparing for the U.S. naturalization
 ## 🎯 How to Use This Repository
 
 **To prepare for the citizenship test:**
-1. Study [`STUDY_GUIDE.md`](./STUDY_GUIDE.md) — it contains every question and every accepted answer from the 2025 USCIS civics bank. Learn the material, not answer patterns.
+1. Study [`study-guide.md`](./study-guide.md) — it contains every question and every accepted answer from the 2025 USCIS civics bank. Learn the material, not answer patterns.
 2. Read the amendments below to understand the constitutional foundation behind the questions.
 3. Open [`quiz.html`](./quiz.html) in any browser to practice under real exam conditions.
 
