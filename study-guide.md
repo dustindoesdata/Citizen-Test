@@ -1,6 +1,6 @@
-# 🇺🇸 U.S. Citizenship Study Guide — 2025 USCIS Civics Test
+# 🇺🇸 The Citizen Test — Study Guide
 
-All 128 official questions and accepted answers from the 2025 USCIS Naturalization Civics Test. Study this material, then take the practice exam at [`index.html`](./index.html).
+All 128 official questions and accepted answers from the 2025 USCIS civics bank. The USCIS exam asks 20 of these questions and requires 12 correct. **The Citizen Test** asks 55 and requires 50. Study this material until you know it — not until you recognize the answer choices.
 
 > **★ Senior Exemption** — Questions marked with ★ are part of the special 20-question bank for applicants who are **65 or older** and have been lawful permanent residents for **20+ years**. Those applicants answer 10 of these 20 questions and need 6 correct to pass.
 >
@@ -950,4 +950,4 @@ All 128 official questions and accepted answers from the 2025 USCIS Naturalizati
 
 *Questions and answers from the official [2025 USCIS 128-Question Civics Test](https://www.uscis.gov/sites/default/files/document/questions-and-answers/2025-Civics-Test-128-Questions-and-Answers.pdf). Verify changing answers at [uscis.gov/citizenship/testupdates](https://www.uscis.gov/citizenship/testupdates).*
 
-*← Back to [README.md](./README.md) · Take the test: [index.html](./index.html)*
+*← Back to [README.md](./README.md) · Take The Citizen Test: [index.html](./index.html)*
