@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="theme-color" content="#3C3B6E">
-<title>U.S. Citizenship Civics Test — 2025 USCIS Edition</title>
+<title>The Citizen Test</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap');
   :root{
@@ -167,15 +167,15 @@
 <header>
   <div class="flag-stripe"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
   <div class="stars">★ ★ ★ ★ ★</div>
-  <h1>U.S. Citizenship Civics Test</h1>
-  <p>2025 USCIS Naturalization Examination — Official Format &nbsp;·&nbsp; <a href="./leaderboard.html" style="color:var(--gold);text-decoration:none;font-style:normal;font-weight:600;">Leaderboard</a></p>
+  <h1>The Citizen Test</h1>
+  <p>True civic understanding goes beyond the basics &nbsp;·&nbsp; <a href="./leaderboard.html" style="color:var(--gold);text-decoration:none;font-style:normal;font-weight:600;">Leaderboard</a></p>
 </header>
 
 <div class="container">
   <div id="start-screen">
-    <h2>How This Test Works</h2>
-    <p>This is a high-stakes civics challenge. Each session draws <strong>55 questions</strong> at random from a bank of 115. Answer choices are randomized every question. The test stops the moment you pass or fail.</p>
-    <p>Your time is recorded from the moment you begin. Complete the test to earn a place on the leaderboard.</p>
+    <h2>This Is Not the USCIS Test</h2>
+    <p>The official USCIS naturalization exam tests the minimum required to become a citizen. <strong>The Citizen Test</strong> is built on the same question bank but holds you to a far higher standard — because a thorough understanding of your rights is what citizenship actually demands.</p>
+    <p>55 questions. 50 correct to pass. 5 wrong and it's over. Your time is recorded from the moment you begin.</p>
     <div class="rules-grid">
       <div class="rule-box"><strong>Questions per session</strong><span>55 (random draw)</span></div>
       <div class="rule-box"><strong>Question bank</strong><span>115 questions</span></div>
@@ -385,13 +385,13 @@ function _end(){
   const badge=document.getElementById('res-badge');
   if(passed){
     document.getElementById('res-title').textContent='Passed';
-    badge.textContent='✓ Certified';
+    badge.textContent='✓ Citizen Standard Met';
     badge.className='result-badge badge-pass';
     document.getElementById('res-msg').textContent=
       _takerName+' answered '+nCorrect+' of '+asked+' questions correctly. Completed in '+_fmtTime(_elapsedSecs)+'.';
   }else{
     document.getElementById('res-title').textContent='Failed';
-    badge.textContent='✗ Not Passing';
+    badge.textContent='✗ Below Citizen Standard';
     badge.className='result-badge badge-fail';
     document.getElementById('res-msg').textContent=
       _takerName+' answered '+nCorrect+' correctly and '+nWrong+' incorrectly. '+PASS+' correct are required to pass. Study study-guide.md and try again.';
