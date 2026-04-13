@@ -1,6 +1,6 @@
-# 🇺🇸 U.S. Constitution & Citizenship — Educational Repository
+# 🇺🇸 U.S. Constitution & The Citizen Test
 
-A complete educational resource for anyone preparing for the U.S. naturalization civics exam, studying American history and government, or wanting to understand the supreme law of the land. Every word of the Constitution's 27 amendments is reproduced verbatim from the [National Constitution Center's enrolled text](https://constitutioncenter.org/media/files/constitution.pdf) — nothing is paraphrased or summarized.
+The official USCIS naturalization exam tests the minimum required to obtain citizenship. **The Citizen Test** holds you to a higher standard — because a citizen who truly understands their rights is what a republic requires. This repository contains the verbatim text of all 27 Constitutional Amendments and the complete USCIS civics question bank to study from. Nothing is paraphrased or summarized.
 
 ---
 
@@ -9,7 +9,7 @@ A complete educational resource for anyone preparing for the U.S. naturalization
 | File | Description |
 |------|-------------|
 | [`study-guide.md`](./study-guide.md) | All 128 USCIS civics test questions with every accepted answer — the complete material to study, with no multiple choice |
-| [`index.html`](./index.html) | High-stakes civics test — 55 questions, pass at 50 correct, fail at 5 incorrect, name entry, live timer, auto-advances between questions |
+| [`index.html`](./index.html) | **The Citizen Test** — 55 questions drawn from the USCIS bank, pass at 50 correct, fail at 5 incorrect, live timer, leaderboard tracking |
 | [`leaderboard.html`](./leaderboard.html) | Leaderboard — all past results with score, time, pass/fail status, filterable and sortable |
 | `README.md` | This file — includes the verbatim text of all 27 Constitutional Amendments |
 
@@ -28,21 +28,22 @@ The amendments below are the exact text of the supreme law of the land.
 
 ---
 
-## 🗳️ About the Citizenship Test
+## 🗳️ About The Citizen Test
 
-The quiz in [`index.html`](./index.html) replicates the exact mechanics of the **2025 USCIS Naturalization Civics Test** — including the early-stop rule that ends the test the moment you reach the pass or fail threshold. Answer options are randomized on every question.
+The USCIS naturalization exam requires answering 12 out of 20 questions correctly — a threshold designed for the minimum understanding needed to become a citizen. **The Citizen Test** uses the same question bank but demands far more: 50 correct out of 55, with the test ending immediately if you get 5 wrong. It is built on the premise that citizenship is not a floor to step over — it is a responsibility to grow into.
 
 | | Real USCIS Exam | [`index.html`](./index.html) |
 |--|--|--|
 | **Format** | Oral — officer asks questions | Multiple choice |
 | **Question bank** | 128 questions | 115 questions* |
-| **Questions per session** | 20 (randomly selected) | 20 (randomly selected) |
+| **Questions per session** | 20 (randomly selected) | 55 (randomly selected) |
 | **Answer order** | N/A — oral | Randomized every question |
-| **Passing score** | 12 correct | 12 correct |
-| **Fail threshold** | 9 incorrect | 9 incorrect |
-| **Stops early?** | Yes | Yes — same rule |
+| **Passing score** | 12 correct | 50 correct |
+| **Fail threshold** | 9 incorrect | 5 incorrect |
+| **Stops early?** | Yes | Yes — on pass or fail |
+| **Timer** | N/A | Yes — recorded for leaderboard |
 
-*13 questions require location-specific answers (current governor, your senators, your representative) and cannot be adapted to multiple-choice format.
+*13 questions require location-specific answers (current governor, your senators, your representative) and are excluded from the multiple-choice format.
 
 The 2025 USCIS test applies to anyone who files Form N-400 on or after **October 20, 2025**.
 
