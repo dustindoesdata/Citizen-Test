@@ -35,7 +35,7 @@ The USCIS naturalization exam requires answering 12 out of 20 questions correctl
 | | Real USCIS Exam | [`index.html`](./index.html) |
 |--|--|--|
 | **Format** | Oral — officer asks questions | Multiple choice |
-| **Question bank** | 128 questions | 115 questions* |
+| **Question bank** | 128 questions | 120 questions* |
 | **Questions per session** | 20 (randomly selected) | 55 (randomly selected) |
 | **Answer order** | N/A — oral | Randomized every question |
 | **Passing score** | 12 correct | 50 correct |
