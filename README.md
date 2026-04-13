@@ -9,7 +9,8 @@ A complete educational resource for anyone preparing for the U.S. naturalization
 | File | Description |
 |------|-------------|
 | [`study-guide.md`](./study-guide.md) | All 128 USCIS civics test questions with every accepted answer — the complete material to study, with no multiple choice |
-| [`index.html`](./index.html) | Interactive civics test replicating the exact 2025 USCIS exam format — 115-question bank, 20 random questions per session, randomized answer order, stops early when you pass or fail |
+| [`index.html`](./index.html) | High-stakes civics test — 55 questions, pass at 50 correct, fail at 5 incorrect, name entry, live timer, auto-advances between questions |
+| [`leaderboard.html`](./leaderboard.html) | Leaderboard — all past results with score, time, pass/fail status, filterable and sortable |
 | `README.md` | This file — includes the verbatim text of all 27 Constitutional Amendments |
 
 ---
@@ -19,7 +20,8 @@ A complete educational resource for anyone preparing for the U.S. naturalization
 **To prepare for the citizenship test:**
 1. Study [`study-guide.md`](./study-guide.md) — it contains every question and every accepted answer from the 2025 USCIS civics bank. Learn the material, not answer patterns.
 2. Read the amendments below to understand the constitutional foundation behind the questions.
-3. Open [`index.html`](./index.html) in any browser to practice under real exam conditions.
+3. Open [`index.html`](./index.html) in any browser to take the high-stakes practice exam.
+4. Check [`leaderboard.html`](./leaderboard.html) to see all past results and track your improvement over time.
 
 **As a reference:**
 The amendments below are the exact text of the supreme law of the land.
