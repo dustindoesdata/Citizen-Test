@@ -134,7 +134,31 @@
     border-radius:8px;cursor:pointer;transition:all .2s;touch-action:manipulation;
   }
   #retake-btn:hover{background:var(--blue);color:#fff;}
+  .leaderboard-link{
+    display:block;text-align:center;margin-top:14px;
+    color:var(--gold);font-weight:600;font-size:.9rem;text-decoration:none;
+    letter-spacing:.5px;
+  }
+  .leaderboard-link:hover{text-decoration:underline;}
 
+  /* ── Name entry ── */
+  .name-entry{margin:20px 0 0;}
+  .name-entry label{display:block;font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);margin-bottom:8px;}
+  #taker-name{width:100%;padding:12px 16px;border-radius:8px;border:2px solid var(--border);background:var(--cream);font-family:'Source Serif 4',serif;font-size:1rem;color:var(--ink);outline:none;transition:border .2s;}
+  #taker-name:focus{border-color:var(--blue);}
+  .name-note{font-size:.78rem;color:var(--muted);margin-top:6px;}
+  #name-error{color:var(--wrong);font-size:.82rem;margin-top:6px;display:none;}
+  /* ── Timer score box ── */
+  .score-box.timer-box .val{font-size:clamp(1.1rem,3.5vw,1.6rem);color:var(--gold);}
+  /* ── Smaller pips for 55-question track ── */
+  .pip{width:clamp(10px,2vw,16px);height:6px;border-radius:3px;background:#DDD9CF;transition:background .3s;flex-shrink:0;}
+  /* ── Result meta (name + time) ── */
+  .result-meta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:10px 0 18px;}
+  .result-meta-item{background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:10px 20px;text-align:center;min-width:100px;}
+  .result-meta-item .m-val{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--blue);}
+  .result-meta-item .m-lbl{font-size:.68rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-top:2px;}
+  /* ── Scoreboard 4-column on wide screens ── */
+  .scoreboard{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px;}
   footer{text-align:center;padding:clamp(16px,4vw,24px) 20px;color:var(--muted);font-size:clamp(.72rem,2.2vw,.82rem);font-style:italic;border-top:1px solid #DDD9CF;margin-top:clamp(32px,6vw,60px);}
   footer a{color:var(--blue);}
 </style>
@@ -144,21 +168,28 @@
   <div class="flag-stripe"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
   <div class="stars">★ ★ ★ ★ ★</div>
   <h1>U.S. Citizenship Civics Test</h1>
-  <p>2025 USCIS Naturalization Examination — Official Format</p>
+  <p>2025 USCIS Naturalization Examination — Official Format &nbsp;·&nbsp; <a href="./leaderboard.html" style="color:var(--gold);text-decoration:none;font-style:normal;font-weight:600;">Leaderboard</a></p>
 </header>
 
 <div class="container">
   <div id="start-screen">
     <h2>How This Test Works</h2>
-    <p>This quiz replicates the format of the <strong>2025 USCIS Naturalization Civics Test</strong>. Each session draws 20 questions at random from a bank of 115 questions — the same content used in real citizenship interviews.</p>
-    <p>The test ends the moment you reach the pass or fail threshold, just like the real exam. Answer choices are randomized on every question.</p>
+    <p>This is a high-stakes civics challenge. Each session draws <strong>55 questions</strong> at random from a bank of 115. Answer choices are randomized every question. The test stops the moment you pass or fail.</p>
+    <p>Your time is recorded from the moment you begin. Complete the test to earn a place on the leaderboard.</p>
     <div class="rules-grid">
-      <div class="rule-box"><strong>Questions per session</strong><span>20 (random draw)</span></div>
+      <div class="rule-box"><strong>Questions per session</strong><span>55 (random draw)</span></div>
       <div class="rule-box"><strong>Question bank</strong><span>115 questions</span></div>
-      <div class="rule-box"><strong>Pass threshold</strong><span>12 correct</span></div>
-      <div class="rule-box"><strong>Fail threshold</strong><span>9 incorrect</span></div>
-      <div class="rule-box"><strong>Stops early?</strong><span>Yes — real exam rule</span></div>
+      <div class="rule-box"><strong>Pass threshold</strong><span>50 correct</span></div>
+      <div class="rule-box"><strong>Fail threshold</strong><span>5 incorrect</span></div>
+      <div class="rule-box"><strong>Stops early?</strong><span>Yes — on pass or fail</span></div>
       <div class="rule-box"><strong>Options order</strong><span>Randomized each time</span></div>
+    </div>
+    <div class="name-entry">
+      <label for="taker-name">Your Name</label>
+      <input type="text" id="taker-name" placeholder="Enter your name to begin" maxlength="40" autocomplete="off" spellcheck="false" onkeydown="if(event.key==='Enter')startQuiz()" />
+      <p class="name-note">Required — used for leaderboard tracking.</p>
+      <p id="name-error"></p>
+      <p class="name-note">Required — used for leaderboard tracking.</p>
     </div>
     <button id="start-btn" onclick="startQuiz()">Begin Test</button>
   </div>
@@ -167,7 +198,8 @@
     <div class="scoreboard">
       <div class="score-box correct"><div class="val" id="score-correct">0</div><div class="lbl">Correct</div></div>
       <div class="score-box incorrect"><div class="val" id="score-incorrect">0</div><div class="lbl">Incorrect</div></div>
-      <div class="score-box remaining"><div class="val" id="score-remaining">20</div><div class="lbl">Remaining</div></div>
+      <div class="score-box remaining"><div class="val" id="score-remaining">55</div><div class="lbl">Remaining</div></div>
+      <div class="score-box timer-box"><div class="val" id="score-timer">0:00</div><div class="lbl">Time</div></div>
     </div>
     <div class="progress-track" id="progress-track"></div>
     <div class="question-card" id="question-card">
@@ -190,6 +222,7 @@
       </div>
       <div class="result-title" id="res-title"></div>
       <div class="result-badge" id="res-badge"></div>
+      <div class="result-meta" id="res-meta"></div>
       <p class="result-msg" id="res-msg"></p>
     </div>
     <div class="review-section" id="review-section" style="display:none;">
@@ -197,6 +230,7 @@
       <div id="review-list"></div>
     </div>
     <button id="retake-btn" onclick="retakeQuiz()">Take Another Test</button>
+    <a href="./leaderboard.html" class="leaderboard-link">View Leaderboard →</a>
   </div>
 </div>
 
@@ -208,7 +242,7 @@
 (function(){
 const _K="ConstitutionOfTheUnitedStates1787";
 const BANK=[{"n":1,"q":"What is the form of government of the United States?","opts":["Republic","Monarchy","Oligarchy","Direct democracy"],"c":"EQoeBhYFHRY="},{"n":2,"q":"What is the supreme law of the land?","opts":["The Declaration of Independence","The U.S. Constitution","The Bill of Rights","The Articles of Confederation"],"c":"FwcLUyFHJ1tUKgAAPBI9HBAhBwYa"},{"n":3,"q":"Name one thing the U.S. Constitution does.","opts":["Declares war on foreign nations","Sets the federal tax rate","Protects the rights of the people","Establishes the national religion"],"c":"Ex0BBxEKAAZUHQcLbxQ9Dw0hHUkbA0QnHARUFRZeR1RS"},{"n":4,"q":"The U.S. Constitution starts with the words \"We the People.\" What does \"We the People\" mean?","opts":["Only landowners govern","Congress has supreme authority","The president speaks for all citizens","The people should govern themselves"],"c":"FwcLUwQMGwUYDE8dJwkhBAF1CQYCABY9VBUcAB5CUlRBJhw="},{"n":5,"q":"How are changes made to the U.S. Constitution?","opts":["Amendments","Supreme Court ruling","Presidential decree","Executive order"],"c":"AgILHRAEERsAGg=="},{"n":6,"q":"What does the Bill of Rights protect?","opts":["The rights of the federal government","The basic rights of Americans","The powers of the president","The authority of Congress"],"c":"FwcLUxYIBxwXSR0HKA4gG0U6CEk1CAEhHQIVCwA="},{"n":7,"q":"How many amendments does the U.S. Constitution have?","opts":["Ten (10)","Twenty-five (25)","Twenty-seven (27)","Thirty-one (31)"],"c":"FxgLHQAQWQYRHwoAb05mX0w="},{"n":8,"q":"Why is the Declaration of Independence important?","opts":["It created the three branches of government","It established the Supreme Court","It set up the Electoral College","It says America is free from British control and all people are created equal"],"c":"ChtOABUQB1U1BAocJgU1SAwmTg8GAAFzEhMbCFNzRVFDKhwGUxcGGgEGBgNOLggwSAQ5AkkEAAsjGARUBAFUF1tFJg4aFhBJEQQBCAM="},{"n":9,"q":"What founding document said the American colonies were free from Britain?","opts":["The Declaration of Independence","The Federalist Papers","The Mayflower Compact","The U.S. Constitution"],"c":"FwcLUzAMFxkVGw4aJgk6SAozTiAaAQEjEQ8QAB1SUg=="},{"n":11,"q":"The words \"Life, Liberty, and the pursuit of Happiness\" are in what founding document?","opts":["The U.S. Constitution","The Declaration of Independence","The Bill of Rights","The Articles of Confederation"],"c":"FwcLUzAMFxkVGw4aJgk6SAozTiAaAQEjEQ8QAB1SUg=="},{"n":12,"q":"What is the economic system of the United States?","opts":["Socialism","Communism","Capitalism","Mercantilism"],"c":"AA4eGgAIGBwHBA=="},{"n":13,"q":"What is the rule of law?","opts":["The president makes all laws","Only Congress is above the law","Judges decide what laws mean","No one is above the law"],"c":"DQBOHBoMVBwHSQ4MIBAxSBE9C0kYBBM="},{"n":14,"q":"Many documents influenced the U.S. Constitution. Name one.","opts":["The Federalist Papers","The Edict of Nantes","The Treaty of Versailles","The Magna Carta Libertatum"],"c":"FwcLUzIMEBAGCAMHPBJ0OAQlCxsH"},{"n":15,"q":"There are three branches of government. Why?","opts":["To make laws faster","So one part does not become too powerful","To represent all political parties","To match the three levels of courts"],"c":"EABOHBoMVAUVGxtOKwkxG0U7AR1UBwEwGwwRRQdeWBhHLBgLARIcGA=="},{"n":16,"q":"Name the three branches of government.","opts":["Federal, state, and local","Senate, House, and Cabinet","Legislative, executive, and judicial","President, Congress, and governors"],"c":"DwoJGgcFFQEdHwpCbwMsDQYgGgACAEhzFQ8QRRlEU1FUKg4C"},{"n":17,"q":"The President of the United States is in charge of which branch of government?","opts":["Legislative branch","Judicial branch","Federal branch","Executive branch"],"c":"BhcLEAEdHQMRSQ0cLgg3AA=="},{"n":18,"q":"What part of the federal government writes laws?","opts":["U.S. Congress","The Supreme Court","The Cabinet","The President"],"c":"FkE9XVQqGxsTGwodPA=="},{"n":19,"q":"What are the two parts of the U.S. Congress?","opts":["The President and the Cabinet","The Senate and the House of Representatives","The Supreme Court and the Senate","The House of Representatives and the Cabinet"],"c":"FwcLUycMGhQADE8PIQJ0HA0wTiEbEBc2VA4SRSFUR0pSMAoABxUdHQMRGg=="},{"n":20,"q":"Name one power of the U.S. Congress.","opts":["Appoints Supreme Court justices","Commands the military","Declares war","Sets foreign policy"],"c":"BwoNHxUbEQZUHg4c"},{"n":21,"q":"How many U.S. senators are there?","opts":["Fifty (50)","Sixty-seven (67)","Four hundred thirty-five (435)","One hundred (100)"],"c":"DAELUxwcGhEGDAtOZ1dkWEw="},{"n":22,"q":"How long is a term for a U.S. senator?","opts":["Six (6) years","Four (4) years","Two (2) years","Eight (8) years"],"c":"EAYWU1xfXVUNDA4cPA=="},{"n":24,"q":"How many voting members are in the House of Representatives?","opts":["One hundred (100)","Four hundred thirty-five (435)","Three hundred (300)","Two hundred (200)"],"c":"BQAbAVQBARsQGwoKbxI8ARchF0QSDBI2VElAVkYY"},{"n":25,"q":"How long is a term for a member of the House of Representatives?","opts":["One (1) year","Four (4) years","Two (2) years","Six (6) years"],"c":"FxgBU1xbXVUNDA4cPA=="},{"n":26,"q":"Why do U.S. representatives serve shorter terms than U.S. senators?","opts":["To limit their power","Because the job is easier","Because they represent fewer people","To more closely follow public opinion"],"c":"FwBOHhsbEVUXBQAdKgotSAM6AgUbEkQjAQMYDBARWEheLQYBHQ=="},{"n":27,"q":"How many senators does each state have?","opts":["Two (2)","One (1)","Three (3)","It varies by population"],"c":"FxgBU1xbXQ=="},{"n":28,"q":"Why does each state have two senators?","opts":["Because senators serve longer terms","Equal representation — the Great Compromise","Because the Constitution requires it for large states","To balance the power of the president"],"c":"Bh4bEhhJBhAEGwodKgggCRE8AQdUh+THVBUcAFN2RV1WN08tHBkZBhoZABwL"},{"n":31,"q":"Who does a U.S. senator represent?","opts":["Only the people who voted for them","The federal government","All people of their state","Their political party"],"c":"AgMCUwQMGwUYDE8BKUYgAAA8HEkHEQUnEQ=="},{"n":32,"q":"Who elects U.S. senators?","opts":["State governors","The state legislature","The Electoral College","Citizens from their state"],"c":"AAYaGg4MGgZUDx0BIkYgAAA8HEkHEQUnEQ=="},{"n":33,"q":"Who does a member of the House of Representatives represent?","opts":["Citizens in their congressional district","All citizens of their state","The federal government","Their political party"],"c":"AAYaGg4MGgZUAAFOOw4xARd1DQYaAhY2BxIdCh1QWxhTKhwaAR0KAA=="},{"n":34,"q":"Who elects members of the House of Representatives?","opts":["State governors","Citizens from their congressional district","The state legislature","The Electoral College"],"c":"AAYaGg4MGgZUDx0BIkYgAAA8HEkXCgo0BgQHFhpeWVlbYwsHAAAbHRYA"},{"n":35,"q":"Some states have more representatives than other states. Why?","opts":["Because of the state's geographic size","Because of the state's history","Because of the state's population","Because of the number of counties"],"c":"AQoNEgEaEVUbD08aJwN0GxE0GgxTFkQjGxEBCRJFXldZ"},{"n":36,"q":"The President of the United States is elected for how many years?","opts":["Two (2) years","Eight (8) years","Six (6) years","Four (4) years"],"c":"BQAbAVRBQFxUEAoPPRU="},{"n":37,"q":"The President of the United States can serve only two terms. Why?","opts":["To keep the president from becoming too powerful","Because of the 18th Amendment","Because two terms equals eight years","Because the Senate voted on it"],"c":"FwBOGBEMBFUAAQpOPxQxGwwxCwcARQIhGwxUBxZSWFVeLQhOBxsGVAUbHgocKRM4"},{"n":40,"q":"If the president can no longer serve, who becomes president?","opts":["The Speaker of the House","The Vice President","The Chief Justice","The Secretary of State"],"c":"FwcLUyIAFxBUOR0LPA8wDQsh"},{"n":41,"q":"Name one power of the president.","opts":["Declare war","Write new laws","Veto bills","Appoint senators"],"c":"FQoaHFQLHRkYGg=="},{"n":42,"q":"Who is Commander in Chief of the U.S. military?","opts":["The Secretary of Defense","The Chairman of the Joint Chiefs","The Vice President","The President of the United States"],"c":"FwcLUyQbEQYdDQoAO0Y7DkUhBgxUMAo6AAQQRSBFVkxSMA=="},{"n":43,"q":"Who signs bills to become laws?","opts":["The President of the United States","The Senate Majority Leader","The Speaker of the House","The Chief Justice"],"c":"FwcLUyQbEQYdDQoAO0Y7DkUhBgxUMAo6AAQQRSBFVkxSMA=="},{"n":44,"q":"Who vetoes bills?","opts":["The Speaker of the House","The President of the United States","The Senate Majority Leader","The Chief Justice"],"c":"FwcLUyQbEQYdDQoAO0Y7DkUhBgxUMAo6AAQQRSBFVkxSMA=="},{"n":45,"q":"Who appoints federal judges?","opts":["The Senate","The Chief Justice","The President of the United States","The Attorney General"],"c":"FwcLUyQbEQYdDQoAO0Y7DkUhBgxUMAo6AAQQRSBFVkxSMA=="},{"n":47,"q":"What does the President's Cabinet do?","opts":["Writes new laws","Confirms judicial appointments","Approves the federal budget","Advises the President"],"c":"AgsYGgcMB1UAAQpOHxQxGwwxCwcA"},{"n":49,"q":"Why is the Electoral College important?","opts":["It decides who is elected president","It confirms Supreme Court justices","It declares war on behalf of Congress","It approves constitutional amendments"],"c":"ChtOFxEKHRERGk8ZJwl0ARZ1CwURBhA2EEEEFxZCXlxSLRs="},{"n":50,"q":"What is one part of the judicial branch?","opts":["The Cabinet","The Supreme Court","The Senate","The Department of Justice"],"c":"FwcLUyccBAcRBApODAkhGhE="},{"n":51,"q":"What does the judicial branch do?","opts":["Writes and passes laws","Commands the military","Reviews laws and resolves legal disputes","Collects federal taxes"],"c":"EQoYGhEeB1UYCBgdbwc6DEUnCxobCRI2B0EYABRQWxhTKhweBgAMBw=="},{"n":52,"q":"What is the highest court in the United States?","opts":["The Federal Court of Appeals","The U.S. District Court","The Court of International Trade","The Supreme Court"],"c":"FwcLUyccBAcRBApODAkhGhE="},{"n":53,"q":"How many seats are on the Supreme Court?","opts":["Nine (9)","Eight (8)","Seven (7)","Eleven (11)"],"c":"DQYAFlRBTVw="},{"n":54,"q":"How many Supreme Court justices are usually needed to decide a case?","opts":["Three (3)","Five (5)","Seven (7)","Nine (9)"],"c":"BQYYFlRBQVw="},{"n":55,"q":"How long do Supreme Court justices serve?","opts":["Ten (10) years","Until age 70","For life","Four (4) years"],"c":"BQAcUxgAEhA="},{"n":56,"q":"Supreme Court justices serve for life. Why?","opts":["To make it easier to recruit qualified judges","So they can build expertise over time","Because the Constitution requires a minimum of 20 years","To be independent of politics and limit outside influence"],"c":"FwBOERFJHRsQDB8LIQIxBhF1AQ9UFQs/HRUdBgARVlZTYwMHHh0dVBoBHRwHKwN0AQszAhwRCwc2"},{"n":58,"q":"Name one power that is only for the federal government.","opts":["Declare war","Establish public schools","Issue driver's licenses","Approve zoning laws"],"c":"BwoNHxUbEVUDCB0="},{"n":59,"q":"Name one power that is only for the states.","opts":["Print paper money","Give a driver's license","Make treaties","Declare war"],"c":"BAYYFlQIVBEGABkLPUEnSAk8DQwaFgE="},{"n":60,"q":"What is the purpose of the 10th Amendment?","opts":["It protects freedom of speech and religion","It abolishes slavery","Powers not given to the federal government belong to the states or the people","It gives women the right to vote"],"c":"EwAZFgYaVBsbHU8JJhAxBkUhAUkADQFzEgQQAAFQWxhQLBkLARoEERsASQ0LIwk6D0UhAUkADQFzBxUVERZCF1dFYxsGFlQZERoEBQo="},{"n":63,"q":"There are four amendments to the U.S. Constitution about who can vote. Describe one.","opts":["Only property owners may vote","Only natural-born citizens can vote","You must pass a literacy test to vote","Citizens eighteen (18) and older can vote"],"c":"AAYaGg4MGgZUDAYJJxIxDQt1RlhMTEQyGgVUCh9VUkoXIA4AUwIGABA="},{"n":64,"q":"Who can vote in federal elections, run for federal office, and serve on a jury in the United States?","opts":["U.S. citizens","All adults over 18","All permanent residents","All taxpayers"],"c":"FkE9XVQKHQEdEwoAPA=="},{"n":65,"q":"What is one right of everyone living in the United States?","opts":["The right to vote in federal elections","Freedom of speech","The right to a government job","The right to receive federal benefits"],"c":"BR0LFhAGGVUbD08dPwMxCw0="},{"n":66,"q":"What do we show loyalty to when we say the Pledge of Allegiance?","opts":["The president","The Constitution","The United States and the flag","The U.S. military"],"c":"FwcLUyEHHQERDU89OwcgDRZ1DwcQRRA7EUESCRJW"},{"n":67,"q":"Name one promise that new citizens make in the Oath of Allegiance.","opts":["To learn English within five years","To serve in elected office","To pay a citizenship tax","To give up loyalty to other countries"],"c":"FwBOFB0fEVUBGU8CIB81BBEsTh0bRQsnHAQGRRBeQlZDMQYLAA=="},{"n":68,"q":"How can people become United States citizens?","opts":["By being born in the U.S. or through naturalization","By living in the U.S. for five years","By marrying a U.S. citizen","By serving in the U.S. military"],"c":"ARZOEREAGhJUCwAcIUY9BkUhBgxUMEoAWkEbF1NFX0pYNggGUxoIAAAGCAMHNQcgAQo7"},{"n":70,"q":"What is one way Americans can serve their country?","opts":["Apply for government assistance","Vote","Join a political party","Move to Washington, D.C."],"c":"FQAaFg=="},{"n":71,"q":"Why is it important to pay federal taxes?","opts":["It is optional but encouraged","It helps pay for state programs","It is required by law and funds the federal government","It funds Social Security only"],"c":"ChtOGgdJBhAFHAYcKgJ0Chx1AggDRQU9EEESEB1VRBhDKwpOFRENEQcVBU8JIBAxGgs4CwcA"},{"n":72,"q":"It is important for all men age 18 through 25 to register for the Selective Service. Name one reason why.","opts":["To receive veterans' benefits","To register to vote","To qualify for federal jobs","It is required by law"],"c":"ChtOGgdJBhAFHAYcKgJ0Chx1AggD"},{"n":73,"q":"The colonists came to America for many reasons. Name one.","opts":["Religious freedom","To find gold and return to Europe","To conquer Native Americans","To build a naval base"],"c":"EQoCGhMAGwAHSQkcKgMwBwg="},{"n":74,"q":"Who lived in America before the Europeans arrived?","opts":["Pilgrims","American Indians / Native Americans","Vikings","Colonists"],"c":"AgILAR0KFRtUIAEKJgc6G0V6TicVEQ0lEUE1CBZDXltWLRw="},{"n":75,"q":"What group of people was taken and sold as slaves?","opts":["Native Americans","Asian immigrants","Africans","Irish indentured servants"],"c":"AgkcGhcIGgY="},{"n":76,"q":"What war did the Americans fight to win independence from Britain?","opts":["The Civil War","The War of 1812","The French and Indian War","The American Revolutionary War"],"c":"FwcLUzUEEQcdCg4AbzQxHgo5Gx0dCgoyBhhUMhJD"},{"n":77,"q":"Name one reason why the Americans declared independence from Britain.","opts":["Taxation without representation","Britain invaded France","The British king died","Britain banned all trade"],"c":"Fw4WEgAAGxtUHgYaJwkhHEUnCxkGABc2GhUVERpeWQ=="},{"n":78,"q":"Who wrote the Declaration of Independence?","opts":["George Washington","Thomas Jefferson","Benjamin Franklin","James Madison"],"c":"FwcBHhUaVD8RDwkLPRU7Bg=="},{"n":79,"q":"When was the Declaration of Independence adopted?","opts":["December 15, 1791","September 17, 1787","July 4, 1776","March 4, 1789"],"c":"CRoCClRdWFVFXlhY"},{"n":80,"q":"The American Revolution had many important events. Name one.","opts":["The Battle of Gettysburg","The Battle of the Bulge","The Battle of Midway","The Battle of Bunker Hill"],"c":"FwcLUzYIAAEYDE8BKUYWHQs+CxtULQ0/GA=="},{"n":81,"q":"Which of the following was one of the 13 original states?","opts":["Pennsylvania","Texas","Florida","Ohio"],"c":"EwoAHQcQGAMVBwYP"},{"n":82,"q":"What founding document was written in 1787?","opts":["The Declaration of Independence","The U.S. Constitution","The Emancipation Proclamation","The Bill of Rights"],"c":"FwcLUyFHJ1tUKgAAPBI9HBAhBwYa"},{"n":83,"q":"The Federalist Papers supported the passage of the U.S. Constitution. Name one of the writers.","opts":["Thomas Jefferson","John Adams","Alexander Hamilton","Patrick Henry"],"c":"AgMLCxUHEBAGSScPIg84HAo7"},{"n":84,"q":"Why were the Federalist Papers important?","opts":["They declared independence from Britain","They established the Supreme Court","They created the Bill of Rights","They helped people understand and supported passing the Constitution"],"c":"FwcLClQBERkEDAtOPwM7GAkwThwaAQEhBxUVCxcRVlZTYxwbAwQGBgERDU8eLhUnAQsyTh0cAEQQGw8HERpFQkxeLAE="},{"n":85,"q":"Benjamin Franklin is famous for many things. Name one.","opts":["He was an inventor and the first Postmaster General","He wrote the U.S. Constitution","He was the first President of the United States","He led the Continental Army"],"c":"CwpOBBUaVBQaSQYAOQM6HAonTggaAUQnHARUAxpDREwXEwAdBxkIBwERG08pKggxGgQ5"},{"n":86,"q":"George Washington is famous for many things. Name one.","opts":["He wrote the Declaration of Independence","He was the first President of the United States","He was the first Chief Justice of the Supreme Court","He founded the Democratic Party"],"c":"CwpOBBUaVAEcDE8IJhQnHEUFHAwHDAA2GhVUChURQ1BSYzoAGgAMEFUnHQ4aKhU="},{"n":87,"q":"Thomas Jefferson is famous for many things. Name one.","opts":["He was the second President of the United States","He led the Continental Army","He was the writer of the Declaration of Independence","He was the first Secretary of Defense"],"c":"CwpOBBUaVAEcDE8ZPQ8gDRd1AQ9UEQw2VCURBh9QRVlDKgAAUxsPVDwaDQoeKggwDQs2Cw=="},{"n":88,"q":"James Madison is famous for many things. Name one.","opts":["He freed the slaves","He was the first President","He wrote the Declaration of Independence","He was known as the \"Father of the Constitution\""],"c":"CwpOBBUaVB4aBhgAbwcnSBE9C0lWIwUnHAQGRRxXF0xfJk8tHBoaABwAHBsHIAh2"},{"n":89,"q":"Alexander Hamilton is famous for many things. Name one.","opts":["He was the first Secretary of the Treasury","He wrote the Declaration of Independence","He was the third President of the United States","He founded the Republican Party"],"c":"CwpOBBUaVAEcDE8IJhQnHEUGCwoGABAyBhhUChURQ1BSYzscFhUaAQcN"},{"n":90,"q":"What territory did the United States buy from France in 1803?","opts":["Florida","Louisiana Territory","Alaska","Texas"],"c":"DwAbGgcAFRsVSTsLPRQ9HAonFw=="},{"n":91,"q":"Name one war fought by the United States in the 1800s.","opts":["World War I","World War II","The Civil War","The Korean War"],"c":"FwcLUzcAAhwYSTgPPQ=="},{"n":92,"q":"Name the U.S. war between the North and the South.","opts":["The Revolutionary War","The War of 1812","The Spanish-American War","The Civil War"],"c":"FwcLUzcAAhwYSTgPPQ=="},{"n":93,"q":"The Civil War had many important events. Name one.","opts":["The Emancipation Proclamation","D-Day at Normandy","The Battle of Midway","The Treaty of Paris"],"c":"FwcLUzEEFRsXAB8POw87BkUFHAYXCQU+FRUdCh0="},{"n":94,"q":"Abraham Lincoln is famous for many things. Name one.","opts":["He led the United States during World War I","He freed the slaves through the Emancipation Proclamation","He wrote the U.S. Constitution","He purchased the Louisiana Territory"],"c":"CwpOFQYMERFUHQcLbxU4CRMwHUkADRY8AQYcRQdZUhhyLg4AEB0ZFQEdBgFOHxQ7Cwk0AwgADAs9"},{"n":95,"q":"What did the Emancipation Proclamation do?","opts":["It gave women the right to vote","It ended World War II","It freed the slaves in the Confederate states","It established the 13th Amendment"],"c":"ChtOFQYMERFUHQcLbxU4CRMwHUkdC0QnHARUJhxfUV1TJh0PBxFJBwEVHQod"},{"n":96,"q":"What U.S. war ended slavery?","opts":["The Revolutionary War","The War of 1812","The Spanish-American War","The Civil War"],"c":"FwcLUzcAAhwYSTgPPQ=="},{"n":97,"q":"What amendment says all persons born or naturalized in the United States are U.S. citizens?","opts":["The 14th Amendment","The 13th Amendment","The 15th Amendment","The 19th Amendment"],"c":"FwcLU0VdAB1UKAILIQI5DQsh"},{"n":98,"q":"When did all men get the right to vote?","opts":["1776","1870","1865","1920"],"c":"cldZQw=="},{"n":99,"q":"Name one leader of the women's rights movement in the 1800s.","opts":["Eleanor Roosevelt","Rosa Parks","Susan B. Anthony","Harriet Beecher Stowe"],"c":"EBodEhpJNltUKAEaJwk6EQ=="},{"n":100,"q":"Name one war fought by the United States in the 1900s.","opts":["The Civil War","The Revolutionary War","The War of 1812","World War II"],"c":"FAAcHxBJIxQGSSYn"},{"n":101,"q":"Why did the United States enter World War I?","opts":["Germany attacked U.S. civilian ships","To stop the spread of communism","Japan attacked Pearl Harbor","To protect its oil supply"],"c":"BAocHhUHDVUVHRsPLA0xDEUAQDpaRQc6AggYDBJfF0tfKh8d"},{"n":102,"q":"When did all women get the right to vote?","opts":["1865","1920","1900","1945"],"c":"clZcQw=="},{"n":103,"q":"What was the Great Depression?","opts":["A period of war in Europe","A major drought that affected the Midwest","The longest economic recession in modern history","A political scandal in Washington, D.C."],"c":"FwcLUxgGGhIRGhtOKgU7Bgo4BwpUFwEwERIHDBxfF1FZYwIBFxEbGlUcABwaIBQt"},{"n":104,"q":"When did the Great Depression start?","opts":["1919","1941","1933","1929"],"c":"clZcSg=="},{"n":105,"q":"Who was president during the Great Depression and World War II?","opts":["Franklin Roosevelt","Woodrow Wilson","Harry S. Truman","Herbert Hoover"],"c":"BR0PHR8FHRtUOwABPAMiDQkh"},{"n":106,"q":"Why did the United States enter World War II?","opts":["Germany invaded Poland","Japan attacked Pearl Harbor","To stop the spread of communism","To support the Soviet Union"],"c":"CQ4eEhpJFQEACAwFKgJ0OAA0HAVULQUhFg4G"},{"n":107,"q":"Dwight Eisenhower is famous for many things. Name one.","opts":["He led the United States during the Civil War","He signed the Emancipation Proclamation","He was a general during World War II","He founded NATO"],"c":"CwpOBBUaVBRUDgoAKhQ1BEUxGxsdCwNzIw4GCRcRYFlFYyYn"},{"n":108,"q":"Who was the United States' main rival during the Cold War?","opts":["China","Germany","Japan","The Soviet Union"],"c":"FwcLUycGAhwRHU87IQ87Bg=="},{"n":109,"q":"During the Cold War, what was one main concern of the United States?","opts":["The spread of communism","Famine in Africa","Illegal immigration","The rise of fascism"],"c":"FwcLUwcZBhAVDU8BKUY3Bwg4GwcdFgk="},{"n":110,"q":"Why did the United States enter the Korean War?","opts":["North Korea attacked Japan","To stop the spread of communism","To protect oil reserves","North Korea attacked U.S. ships"],"c":"FwBOAAAGBFUAAQpOPBYmDQQxTgYSRQc8GQwBCxpCWg=="},{"n":111,"q":"Why did the United States enter the Vietnam War?","opts":["To respond to the attack on Pearl Harbor","To protect a military ally from invasion","To stop the spread of communism","To secure trade routes"],"c":"FwBOAAAGBFUAAQpOPBYmDQQxTgYSRQc8GQwBCxpCWg=="},{"n":112,"q":"What did the civil rights movement do?","opts":["Fought for voting rights for women","Fought for lower taxes","Fought for independence from Britain","Fought to end racial discrimination"],"c":"BQAbFBwdVAEbSQoAK0YmCQY8DwVUAQ0gFxMdCBpfVkxeLAE="},{"n":113,"q":"Martin Luther King, Jr. is famous for many things. Name one.","opts":["He fought for civil rights and equality for all Americans","He was the first Black senator","He founded the NAACP","He wrote the 14th Amendment"],"c":"CwpOFRscEx0ASQkBPUY3ARM8AkkGDAM7ABJUBB1VF11GNg4CGgAQVBMbG08PIwp0KQgwHAAXBAog"},{"n":114,"q":"Why did the United States enter the Persian Gulf War?","opts":["To stop the spread of communism","To force the Iraqi military from Kuwait","To retaliate for the September 11 attacks","To protect oil pipelines in Saudi Arabia"],"c":"FwBOFRsbFxBUHQcLby8mCRQ8TgQdCQ0nFRMNRRVDWFUXCBoZEh0d"},{"n":115,"q":"What major event happened on September 11, 2001 in the United States?","opts":["The United States declared war on Iraq","A major hurricane struck New York City","Terrorists attacked the United States","The stock market crashed"],"c":"FwocARsbHQYAGk8POxI1Cw4wCkkADQFzIQ8dERZVF2tDIhsLAA=="},{"n":116,"q":"Name one U.S. military conflict after the September 11, 2001 attacks.","opts":["The Korean War","The Vietnam War","The Gulf War","The War in Afghanistan"],"c":"FwcLUyMIBlUdB08vKQE8CQs8HR0VCw=="},{"n":118,"q":"Name one example of an American innovation.","opts":["The airplane","The steam locomotive","The printing press","The telephone"],"c":"FwcLUxUABgUYCAEL"},{"n":119,"q":"What is the capital of the United States?","opts":["New York City","Washington, D.C.","Philadelphia","Boston"],"c":"FA4dGx0HEwEbB0NOC0gXRg=="},{"n":120,"q":"Where is the Statue of Liberty?","opts":["Washington, D.C.","Philadelphia","New York Harbor","Boston Harbor"],"c":"DQoZUy0GBh5UIQ4cLQkm"},{"n":121,"q":"Why does the flag have 13 stripes?","opts":["To honor the 13 founding fathers","To represent the 13 amendments in the Bill of Rights","One stripe for each year of the Revolutionary War","Because the stripes represent the 13 original colonies"],"c":"AQoNEgEaEVUAAQpOPBImARUwHUkGABQhERIRCwcRQ1BSY15dUxsbHRIdBw4CbwU7BAo7BwwH"},{"n":122,"q":"Why does the flag have 50 stars?","opts":["One star for each state","Because 50 is a sacred number in American history","One star for each president","To honor the 50 senators"],"c":"DAELUwcdFQdUDwAcbwM1Cw11HR0VEQE="},{"n":123,"q":"What is the name of the national anthem?","opts":["America the Beautiful","The Star-Spangled Banner","God Bless America","My Country, 'Tis of Thee"],"c":"FwcLUycdFQdZOh8PIQE4DQF1LAgaCwEh"},{"n":124,"q":"The nation's first motto was \"E Pluribus Unum.\" What does that mean?","opts":["In God We Trust","Freedom and justice for all","Out of many, one","Land of the free"],"c":"DBoaUxsPVBgVBxZCbwk6DQ=="},{"n":125,"q":"What is Independence Day?","opts":["A holiday to honor U.S. military veterans","A holiday to honor the President","A holiday to remember soldiers who died in battle","A holiday to celebrate U.S. independence from Britain"],"c":"Ak8GHBgAEBQNSRsBbwUxBAA3HAgAAEQGWjJaRRpfU11HJgEKFhoKEVUSGwADbyQmARE0Bwc="},{"n":126,"q":"Which of the following is a national U.S. holiday?","opts":["Thanksgiving Day","Election Day","St. Patrick's Day","Groundhog Day"],"c":"FwcPHR8aExwCAAEJbyI1EQ=="},{"n":127,"q":"What is Memorial Day?","opts":["A holiday to honor people who currently serve in the military","A holiday to honor soldiers who died in military service","A holiday to celebrate U.S. independence","A holiday to remember all U.S. presidents"],"c":"Ak8GHBgAEBQNSRsBbw47BgonThobCQA6ERMHRQRZWBhTKgoKUx0HVBgdBQYaLhQtSBYwHB8dBgE="},{"n":128,"q":"What is Veterans Day?","opts":["A holiday to honor soldiers who died in military service","A holiday to celebrate U.S. independence","A holiday to honor people who have served in the U.S. military","A holiday to remember the Civil War"],"c":"Ak8GHBgAEBQNSRsBbw47BgonThkRChQ/EUEDDRwRX1lBJk8dFgYfERFUAAFOOw4xSDB7PUdUCA0/HRUVFwo="}];
-const PASS=12,FAIL=9,SZ=20;
+const PASS=50,FAIL=5,SZ=55;
 const L=['A','B','C','D'];
 
 // Decode encoded correct answer — never stored in DOM
@@ -227,15 +261,39 @@ function shuffle(a){
 }
 
 let session=[],idx=0,nCorrect=0,nWrong=0,results=[];
-// correctText holds the decoded correct answer for the CURRENT question — never in DOM
 let _currentCorrect='';
+let _takerName='';
+let _startTime=0,_timerInterval=null,_elapsedSecs=0;
+
+function _fmtTime(s){
+  const m=Math.floor(s/60),sec=s%60;
+  return m+':'+(sec<10?'0':'')+sec;
+}
 
 function startQuiz(){
+  const inp=document.getElementById('taker-name');
+  const err=document.getElementById('name-error');
+  const name=(inp?inp.value.trim():'');
+  if(!name){
+    if(err){err.style.display='block';err.textContent='Please enter your name before starting.';}
+    if(inp)inp.focus();
+    return;
+  }
+  if(err)err.style.display='none';
+  _takerName=name;
   session=shuffle([...BANK]).slice(0,SZ);
-  idx=0;nCorrect=0;nWrong=0;results=[];
+  idx=0;nCorrect=0;nWrong=0;results=[];_elapsedSecs=0;
   document.getElementById('start-screen').style.display='none';
   document.getElementById('quiz-screen').style.display='block';
   _buildTrack();
+  // Start timer
+  _startTime=Date.now();
+  if(_timerInterval)clearInterval(_timerInterval);
+  _timerInterval=setInterval(()=>{
+    _elapsedSecs=Math.floor((Date.now()-_startTime)/1000);
+    const el=document.getElementById('score-timer');
+    if(el)el.textContent=_fmtTime(_elapsedSecs);
+  },500);
   _render();
 }
 
@@ -267,17 +325,11 @@ function _render(){
   _sb();
   if(idx>=session.length){_end();return;}
   const q=session[idx];
-
-  // Decode correct answer into closure variable — NOT the DOM
   _currentCorrect=_d(q.c);
-
-  // Shuffle options randomly on every render
   const shuffled=shuffle([...q.opts]);
-
   document.getElementById('q-meta').textContent=
     'Question '+(idx+1)+' of '+SZ+'  ·  USCIS #'+q.n;
   document.getElementById('q-text').textContent=q.q;
-
   const opts=document.getElementById('options');
   opts.innerHTML='';
   shuffled.forEach((opt,oi)=>{
@@ -294,24 +346,21 @@ function _render(){
 }
 
 function _select(btn,chosenText,q){
-  // Disable all buttons immediately
   document.querySelectorAll('.option-btn').forEach(b=>{b.disabled=true;});
   btn.classList.add('selected');
-
   const isCorrect=(chosenText===_currentCorrect);
   if(isCorrect){nCorrect++;_pip(idx,'correct');}
   else{nWrong++;_pip(idx,'incorrect');btn.classList.add('marked-wrong');}
-
   results.push({q,chosenText,correct:isCorrect});
   idx++;
   _sb();
-
-  // Auto-advance — slightly longer delay on end so the user sees their final answer
   const done=(nCorrect>=PASS||nWrong>=FAIL||idx>=SZ);
-  setTimeout(done?_end:_render, done?800:900);
+  setTimeout(done?_end:_render,done?800:900);
 }
 
 function _end(){
+  clearInterval(_timerInterval);
+  _elapsedSecs=Math.floor((Date.now()-_startTime)/1000);
   document.getElementById('quiz-screen').style.display='none';
   const screen=document.getElementById('results-screen');
   screen.classList.add('show');
@@ -325,20 +374,36 @@ function _end(){
   document.getElementById('res-skipped-stat').textContent=
     (SZ-asked)>0?'Test ended after '+asked+' of '+SZ+' questions':'All '+SZ+' questions answered';
 
+  // Name + time display
+  const meta=document.getElementById('res-meta');
+  if(meta){
+    meta.innerHTML=
+      '<div class="result-meta-item"><div class="m-val">'+_takerName+'</div><div class="m-lbl">Test Taker</div></div>'+
+      '<div class="result-meta-item"><div class="m-val">'+_fmtTime(_elapsedSecs)+'</div><div class="m-lbl">Time</div></div>';
+  }
+
   const badge=document.getElementById('res-badge');
   if(passed){
     document.getElementById('res-title').textContent='Passed';
-    badge.textContent='✓ Meets 2025 USCIS Standard';
+    badge.textContent='✓ Certified';
     badge.className='result-badge badge-pass';
     document.getElementById('res-msg').textContent=
-      'You answered '+nCorrect+' of '+asked+' questions correctly and meet the passing threshold ('+PASS+' correct required). Each new session draws a fresh random selection — take another to cover more of the question bank.';
+      _takerName+' answered '+nCorrect+' of '+asked+' questions correctly. Completed in '+_fmtTime(_elapsedSecs)+'.';
   }else{
-    document.getElementById('res-title').textContent='Not Yet Passing';
-    badge.textContent='✗ Below 2025 USCIS Standard';
+    document.getElementById('res-title').textContent='Failed';
+    badge.textContent='✗ Not Passing';
     badge.className='result-badge badge-fail';
     document.getElementById('res-msg').textContent=
-      'You answered '+nCorrect+' correctly and '+nWrong+' incorrectly. The 2025 USCIS exam requires '+PASS+' correct to pass. Review the questions below, study STUDY_GUIDE.md, and try again.';
+      _takerName+' answered '+nCorrect+' correctly and '+nWrong+' incorrectly. '+PASS+' correct are required to pass. Study study-guide.md and try again.';
   }
+
+  // Save result for future leaderboard (localStorage)
+  try{
+    const entry={name:_takerName,score:nCorrect,total:asked,time:_elapsedSecs,passed,date:new Date().toISOString()};
+    const board=JSON.parse(localStorage.getItem('civics_leaderboard')||'[]');
+    board.push(entry);
+    localStorage.setItem('civics_leaderboard',JSON.stringify(board));
+  }catch(e){}
 
   const wrong=results.filter(r=>!r.correct);
   const rs=document.getElementById('review-section');
@@ -366,10 +431,10 @@ function _end(){
 
 function retakeQuiz(){
   document.getElementById('results-screen').classList.remove('show');
+  // Pre-fill name and go straight to quiz
   startQuiz();
 }
 
-// Expose only retakeQuiz globally; everything else is private
 window.startQuiz=startQuiz;
 window.retakeQuiz=retakeQuiz;
 })();
