@@ -1,4 +1,4 @@
-# 🇺🇸 U.S. Constitution & The Citizen Test
+# 🇺🇸 The Citizen Test
 
 The official USCIS naturalization exam tests the minimum required to obtain citizenship. **The Citizen Test** holds you to a higher standard — because a citizen who truly understands their rights is what a republic requires. This repository contains the verbatim text of all 27 Constitutional Amendments and the complete USCIS civics question bank to study from. Nothing is paraphrased or summarized.
 
@@ -10,7 +10,7 @@ The official USCIS naturalization exam tests the minimum required to obtain citi
 |------|-------------|
 | [`study-guide.md`](./study-guide.md) | All 128 USCIS civics test questions with every accepted answer — the complete material to study, with no multiple choice |
 | [`index.html`](./index.html) | **The Citizen Test** — 55 questions drawn from the USCIS bank, pass at 50 correct, fail at 5 incorrect, live timer, leaderboard tracking |
-| [`leaderboard.html`](./leaderboard.html) | Leaderboard — all past results with score, time, pass/fail status, filterable and sortable |
+| [`leaderboard.html`](./leaderboard.html) | Leaderboard — all past results with score, time, pass/fail status |
 | `README.md` | This file — includes the verbatim text of all 27 Constitutional Amendments |
 
 ---
@@ -22,6 +22,11 @@ The official USCIS naturalization exam tests the minimum required to obtain citi
 2. Read the amendments below to understand the constitutional foundation behind the questions.
 3. Open [`index.html`](./index.html) in any browser to take the high-stakes practice exam.
 4. Check [`leaderboard.html`](./leaderboard.html) to see all past results and track your improvement over time.
+
+**Ready to go deeper?**
+Once you can pass the Citizen Test, take **The Constitution Test** — 40 questions drawn directly from the enrolled constitutional text, covering every Article and every Amendment word for word.
+
+> 🔗 **[constitution-test repository](https://github.com/dustindoesdata/constitution-test)**
 
 **As a reference:**
 The amendments below are the exact text of the supreme law of the land.
